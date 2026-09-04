@@ -115,7 +115,7 @@ const partnerRoles = [
 
 function HandoffSlide() {
   return (
-    <article className="slide">
+    <article className="slide handoff-slide">
       <Eyebrow number="03">Before AI</Eyebrow>
       <div className="heading-row">
         <div>
@@ -260,7 +260,7 @@ const currentPrograms = [
 
 function CurrentPortfolioSlide() {
   return (
-    <article className="slide">
+    <article className="slide portfolio-slide">
       <Eyebrow number="04">Our portfolio today</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
@@ -292,7 +292,7 @@ const trackSummaries = [
 
 function ProposedModelSlide() {
   return (
-    <article className="slide">
+    <article className="slide proposal-slide">
       <Eyebrow number="06">The proposed model</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
@@ -334,7 +334,7 @@ const coreCourses = [
 
 function CoreCoursesSlide() {
   return (
-    <article className="slide">
+    <article className="slide core-slide">
       <Eyebrow number="07">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
@@ -389,7 +389,7 @@ const specialties = [
 
 function SpecialtiesSlide() {
   return (
-    <article className="slide">
+    <article className="slide specialties-slide">
       <Eyebrow number="08">The specialties</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
@@ -419,7 +419,7 @@ function OutcomesSlide() {
     { icon: Smartphone, label: 'iOS', value: 'Native mobile engineering craft' },
   ];
   return (
-    <article className="slide">
+    <article className="slide outcomes-slide">
       <Eyebrow number="09">The graduate</Eyebrow>
       <h2 className="one-line-title">A specialist who sees the whole.</h2>
       <div className="graduate-layout">
