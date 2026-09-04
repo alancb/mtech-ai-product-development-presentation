@@ -498,6 +498,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .partner-role-card small { margin-top: 2px; color: var(--muted-foreground); font-size: 8px; line-height: 1.15; }
 .org-chart-note { display: flex; align-items: flex-start; gap: 9px; margin: 9px 0 0; color: var(--ink-soft); font-size: 9px; line-height: 1.25; }
 .org-chart-note svg { flex: 0 0 auto; width: 16px; color: var(--primary); }
+.org-chart-note b { color: var(--primary); font-weight: 850; }
 
 .map-comparison { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); align-items: center; gap: clamp(8px, 2vw, 28px); margin-top: clamp(22px, 3.5vh, 40px); }
 .map-comparison .bloom-panel { min-height: clamp(270px, 36vh, 380px); grid-template-columns: minmax(125px, .62fr) minmax(230px, 1.38fr); padding: 18px 22px; border-color: var(--border); border-radius: 18px; background: #fff; }

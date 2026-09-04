@@ -178,7 +178,7 @@ function HandoffSlide() {
             </div>
           ))}
         </div>
-        <p className="org-chart-note"><GraduationCap aria-hidden="true" /> We teach across this whole org chart: deep practice in product roles, plus the fluency to work well with partner teams.</p>
+        <p className="org-chart-note"><GraduationCap aria-hidden="true" /><span><b>What we teach:</b> deep practice in product roles, plus the fluency to work well with every partner team in the chart.</span></p>
       </div>
     </article>
   );
