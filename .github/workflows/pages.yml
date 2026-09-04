@@ -46,7 +46,9 @@ jobs:
           const textExtensions = new Set(['.html', '.js', '.css', '.json', '.rsc']);
 
           const nextAssets = path.join(root, '_next');
+          const prefixedNextAssets = path.join(root, prefix.slice(1), '_next');
           if (fs.existsSync(nextAssets)) fs.renameSync(nextAssets, path.join(root, 'assets'));
+          if (fs.existsSync(prefixedNextAssets)) fs.renameSync(prefixedNextAssets, path.join(root, 'assets'));
 
           function rewrite(filePath) {
             const extension = path.extname(filePath);
