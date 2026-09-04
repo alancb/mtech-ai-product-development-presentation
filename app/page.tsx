@@ -11,7 +11,6 @@ import {
   Database,
   GraduationCap,
   Layers3,
-  Lightbulb,
   Megaphone,
   Network,
   Palette,
@@ -135,13 +134,11 @@ const teamRoles = [
 ];
 
 const partnerRoles = [
-  { label: 'Marketing', description: 'Position and promote', icon: Megaphone },
-  { label: 'Graphic Design', description: 'Shape the visual identity', icon: Palette },
-  { label: 'IT', description: 'Keep systems secure', icon: Network },
-  { label: 'Data', description: 'Measure outcomes', icon: Database },
+  { label: 'Marketing', icon: Megaphone },
+  { label: 'Graphic Design', icon: Palette },
+  { label: 'IT', icon: Network },
+  { label: 'Data', icon: Database },
 ];
-
-const productSteps = ['Define', 'Shape', 'Build', 'Verify', 'Launch'];
 
 function HandoffSlide() {
   return (
@@ -150,9 +147,8 @@ function HandoffSlide() {
       <div className="heading-row">
         <div>
           <h2>Product teams<br /><em>before AI</em></h2>
-          <p className="lead">Product work moved from definition to go-live in a mostly linear handoff. Partner teams supported the work from outside the core.</p>
+          <p className="lead">Work moved through a mostly linear handoff. Partner teams supported the product from outside the core.</p>
         </div>
-        <span className="era-pill">The handoff era</span>
       </div>
       <div className="team-before-graphic">
         <div className="team-rail-label"><span>Inside the product team</span><small>Shared responsibility was narrow</small></div>
@@ -165,20 +161,19 @@ function HandoffSlide() {
                 <b>{label}</b>
                 <small>{description}</small>
               </div>
-              <small className="rail-step">{String(index + 1).padStart(2, '0')} · {productSteps[index]}</small>
             </div>
           ))}
         </div>
-        <div className="org-chart-divider"><span>Partner teams</span><small>Connected to the product team, but outside the core</small></div>
+        <div className="org-chart-divider"><span>Partner teams outside the core</span></div>
         <div className="partner-role-grid">
-          {partnerRoles.map(({ label, description, icon: Icon }, index) => (
+          {partnerRoles.map(({ label, icon: Icon }, index) => (
             <div className="partner-role-card" key={label} style={{ '--delay': `${(index + teamRoles.length) * 110}ms` } as React.CSSProperties}>
               <span className="role-icon"><Icon aria-hidden="true" /></span>
-              <div><b>{label}</b><small>{description}</small></div>
+              <b>{label}</b>
             </div>
           ))}
         </div>
-        <p className="org-chart-note"><GraduationCap aria-hidden="true" /><span><b>What we teach:</b> deep practice in product roles, plus the fluency to work well with every partner team in the chart.</span></p>
+        <p className="org-chart-note"><GraduationCap aria-hidden="true" /><span><b>What we teach:</b> every core product role, plus how to work with the partner teams around it.</span></p>
       </div>
     </article>
   );
@@ -230,7 +225,7 @@ function SunflowerSlide() {
       <div className="heading-row compact-heading">
         <div>
           <h2>One shared map.<br /><em>Specialists add the resolution.</em></h2>
-          <p className="lead">AI gives the whole team one common picture of the product. Expertise is how each role sees what others cannot.</p>
+          <p className="lead">AI gives everyone the same product context. Specialists reveal the detail others cannot see.</p>
         </div>
       </div>
       <div className="map-comparison">
@@ -244,19 +239,18 @@ function SunflowerSlide() {
           <MapGraphic modern />
         </div>
       </div>
-      <p className="metaphor-note"><Lightbulb aria-hidden="true" /> Everyone works from one shared map of the product, including users, AI, systems, and ethics, but each specialist sees it through a higher-resolution lens: design, engineering, testing, or product.</p>
     </article>
   );
 }
 
 const currentPrograms = [
-  { name: 'Data Technology', lane: 'Data', icon: Database },
-  { name: 'Digital Design', lane: 'Design', icon: Palette },
-  { name: 'Digital Marketing', lane: 'Growth', icon: Megaphone },
-  { name: 'iOS App Development', lane: 'Mobile', icon: Smartphone },
-  { name: 'Networking & Cybersecurity', lane: 'Infrastructure', icon: Network },
-  { name: 'Software Quality Assurance', lane: 'Testing', icon: TestTube2 },
-  { name: 'Web Development', lane: 'Web', icon: Code2 },
+  { name: 'Data Technology', icon: Database },
+  { name: 'Digital Design', icon: Palette },
+  { name: 'Digital Marketing', icon: Megaphone },
+  { name: 'iOS App Development', icon: Smartphone },
+  { name: 'Networking & Cybersecurity', icon: Network },
+  { name: 'Software Quality Assurance', icon: TestTube2 },
+  { name: 'Web Development', icon: Code2 },
 ];
 
 function CurrentPortfolioSlide() {
@@ -266,22 +260,19 @@ function CurrentPortfolioSlide() {
       <div className="heading-row compact-heading">
         <div>
           <h2>Our programs reflect<br /><em>the old team model.</em></h2>
-          <p className="lead">Strong vertical lanes. Limited shared foundation. Students learn their part of the work, not yet the full path from product decision to go-live.</p>
+          <p className="lead">Strong vertical lanes. Students learn one part of the work, not the full path from product decision to launch.</p>
         </div>
-        <div className="mini-principle"><Layers3 aria-hidden="true" /><span><b>Our opportunity</b> = teach the whole path</span></div>
       </div>
       <div className="catalog-grid">
-        {currentPrograms.map(({ name, lane, icon: Icon }, index) => (
+        {currentPrograms.map(({ name, icon: Icon }, index) => (
           <div className="catalog-card" key={name} style={{ '--delay': `${index * 55}ms` } as React.CSSProperties}>
             <Icon aria-hidden="true" />
             <strong>{name}</strong>
-            <span>{lane}</span>
           </div>
         ))}
         <div className="catalog-card catalog-summary">
           <Network aria-hidden="true" />
-          <strong>The connective tissue is thin.</strong>
-          <span>That is the opportunity.</span>
+          <strong>We teach the parts, not yet the shared path.</strong>
         </div>
       </div>
     </article>
@@ -303,7 +294,6 @@ function ProposedModelSlide() {
           <h2>One shared foundation.<br /><em>Three clear specialties.</em></h2>
           <p className="lead">Students first learn to think, plan, build, and verify together, then develop a distinctive craft.</p>
         </div>
-        <span className="proposal-badge"><Sparkles aria-hidden="true" /> AI Product Development</span>
       </div>
       <div className="program-architecture">
         <div className="core-platform">
@@ -324,24 +314,17 @@ function ProposedModelSlide() {
           ))}
         </div>
       </div>
-      <div className="program-facts" aria-label="Program facts">
-        <div><strong>720</strong><span>Total hours</span></div>
-        <div><strong>24</strong><span>Credits</span></div>
-        <div><strong>2</strong><span>Stackable stages</span></div>
-        <div><strong>1</strong><span>Portfolio product</span></div>
-        <div><strong>∞</strong><span>Ethics woven through</span></div>
-      </div>
-      <p className="footnote">A focused redesign where AI has compressed team boundaries fastest, not a claim that every existing program disappears.</p>
+      <p className="architecture-equation"><strong>360 hours together</strong><span>+</span><strong>360 hours specialized</strong><span>=</span><strong>one complete graduate</strong></p>
     </article>
   );
 }
 
 const coreCourses = [
-  { number: '01', hours: '30h', title: 'Introduction to AI Product Development', outcome: 'Shared language + first published site', icon: Sparkles },
-  { number: '02', hours: '60h', title: 'Product Thinking and Planning', outcome: 'A problem worth solving + product brief', icon: Target },
-  { number: '03', hours: '60h', title: 'Software Systems and Architecture', outcome: 'A plan for how the system works', icon: Layers3 },
-  { number: '04', hours: '90h', title: 'Software Development with AI', outcome: 'A tested, working product', icon: Code2 },
-  { number: '05', hours: '120h', title: 'AI Agents and Automation', outcome: 'A guarded system that can take action', icon: Bot },
+  { number: '01', hours: '30h', title: 'Introduction to AI Product Development', artifact: 'First published site', icon: Sparkles },
+  { number: '02', hours: '60h', title: 'Product Thinking and Planning', artifact: 'Product brief', icon: Target },
+  { number: '03', hours: '60h', title: 'Software Systems and Architecture', artifact: 'System plan', icon: Layers3 },
+  { number: '04', hours: '90h', title: 'Software Development with AI', artifact: 'Working product', icon: Code2 },
+  { number: '05', hours: '120h', title: 'AI Agents and Automation', artifact: 'Agent workflow', icon: Bot },
 ];
 
 function CoreCoursesSlide() {
@@ -356,38 +339,24 @@ function CoreCoursesSlide() {
         <div className="core-total"><strong>360</strong><span>hours<br />12 credits</span></div>
       </div>
       <div className="course-grid">
-        {coreCourses.map(({ number, hours, title, outcome, icon: Icon }, index) => {
-          const step = learningChain[index];
-          const StepIcon = step.icon;
-          return (
+        {coreCourses.map(({ number, hours, title, artifact, icon: Icon }, index) => (
             <div className="course-card" key={number} style={{ '--delay': `${index * 80}ms` } as React.CSSProperties}>
               <div className="course-top"><span>{number}</span><b>{hours}</b></div>
               <Icon aria-hidden="true" />
               <strong>{title}</strong>
-              <small className="course-outcome">{outcome}</small>
               <div className="course-deliverable">
-                <span><StepIcon aria-hidden="true" /></span>
-                <div><b>{step.label}</b><small>{step.artifact}</small></div>
+                <div><b>Student creates</b><small>{artifact}</small></div>
               </div>
             </div>
-          );
-        })}
+        ))}
       </div>
       <div className="responsibility-banner">
         <ShieldCheck aria-hidden="true" />
-        <div><strong>Ethics is not a separate unit.</strong><span>Privacy, verification, guardrails, and accountability live inside the work where decisions are made.</span></div>
+        <div><strong>Ethics is practiced, not isolated.</strong><span>Privacy, verification, guardrails, and accountability live inside every course.</span></div>
       </div>
     </article>
   );
 }
-
-const learningChain = [
-  { label: 'Understand', artifact: 'Published site', icon: GraduationCap },
-  { label: 'Frame', artifact: 'Product brief', icon: Target },
-  { label: 'Design', artifact: 'System plan', icon: Layers3 },
-  { label: 'Build', artifact: 'Working product', icon: Code2 },
-  { label: 'Automate', artifact: 'Agent workflow', icon: Bot },
-];
 
 const specialties = [
   {

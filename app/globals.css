@@ -216,6 +216,9 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .track-tile small { margin-top: 3px; color: var(--muted-foreground); font-size: 10px; }
 .track-tile > b { color: #9b7125; font-size: 10px; }
 .footnote { margin: clamp(13px, 2vh, 20px) 0 0; color: var(--muted-foreground); font-size: 10px; text-align: center; }
+.architecture-equation { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 2.2vw, 34px); margin: clamp(18px, 3vh, 30px) 0 0; padding: 16px 20px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
+.architecture-equation strong { font-size: clamp(16px, 1.6vw, 23px); }
+.architecture-equation span { color: var(--primary); font-size: clamp(22px, 2.2vw, 32px); font-weight: 700; }
 
 .program-equation { display: grid; grid-template-columns: 1fr auto 1fr auto 1.08fr; align-items: stretch; gap: clamp(12px, 2vw, 26px); margin-top: clamp(30px, 5vh, 58px); }
 .equation-block { min-height: clamp(170px, 22vh, 220px); display: flex; flex-direction: column; justify-content: center; padding: clamp(20px, 3vw, 38px); border: 1px solid #d8d4ca; border-radius: 24px; background: rgba(255,253,248,.78); }
@@ -362,6 +365,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .track-row { grid-template-columns: 1fr; }
   .track-connector { display: none; }
   .track-tile { margin-top: 10px; }
+  .architecture-equation { flex-direction: column; gap: 5px; }
   .program-equation { grid-template-columns: 1fr; }
   .equation-symbol { text-align: center; }
   .course-grid { grid-template-columns: repeat(2, 1fr); }
@@ -568,91 +572,145 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .program-facts { grid-template-columns: repeat(2, 1fr); }.program-facts > div:nth-child(2) { border-right: 0; }.program-facts > div:nth-child(3) { border-right: 1px solid #e5e5e5; }.program-facts > div:nth-child(n+3) { border-top: 1px solid #e5e5e5; }
 }
 
-/* Projector view: use the available width and give supporting copy enough optical weight. */
+/* Auditorium view: no meaningful presentation copy falls below readable slide scale. */
 @media (min-width: 900px) {
-  body { font-weight: 500; }
-  .presentation-header { padding-inline: clamp(30px, 3.2vw, 64px); }
-  .presentation-footer { padding-inline: clamp(30px, 3.2vw, 64px); }
-  .section-name { font-size: 12px; }
-  .slide-counter { font-size: 13px; }
+  body { font-weight: 520; }
+  .presentation-header, .presentation-footer { padding-inline: clamp(28px, 2.8vw, 56px); }
+  .section-name { font-size: 14px; font-weight: 800; }
+  .slide-counter { font-size: 14px; font-weight: 700; }
   .slide-stage {
-    padding: clamp(78px, 9vh, 104px) clamp(28px, 3.3vw, 64px) clamp(82px, 10vh, 108px);
+    padding: clamp(76px, 8.7vh, 100px) clamp(26px, 2.8vw, 54px) clamp(80px, 9.5vh, 102px);
   }
-  .slide { max-width: 1600px; }
-  h1 { max-width: 1260px; }
-  h2 { max-width: 1220px; }
-  .eyebrow { margin-bottom: clamp(12px, 1.6vh, 18px); font-size: clamp(12px, 1vw, 15px); }
-  .title-deck { max-width: 1120px; font-size: clamp(20px, 1.7vw, 28px); font-weight: 500; }
-  .lead { max-width: 1100px; font-size: clamp(18px, 1.5vw, 24px); font-weight: 500; }
-  .heading-row .lead, .compact-heading .lead { max-width: 1000px; }
+  .slide { max-width: 1720px; }
+  h1 { max-width: 1320px; }
+  h2 { max-width: 1320px; }
+  .eyebrow { margin-bottom: clamp(10px, 1.4vh, 16px); font-size: clamp(14px, 1.05vw, 17px); }
+  .title-deck { max-width: 1180px; font-size: clamp(24px, 1.9vw, 31px); font-weight: 560; line-height: 1.32; }
+  .lead { max-width: 1160px; font-size: clamp(21px, 1.7vw, 27px); font-weight: 540; line-height: 1.32; }
+  .heading-row .lead, .compact-heading .lead { max-width: 1120px; }
+  .presenter-line strong { font-size: 20px; }
+  .presenter-line small { font-size: 16px; }
 
-  .icon-label { font-size: clamp(14px, 1.05vw, 17px); font-weight: 600; }
-  .icon-label > span { width: 38px; height: 38px; }
-  .icon-label svg { width: 18px; }
-  .aside-label { font-size: 11px; }
-  .program-stack-item { grid-template-columns: 30px 1fr 24px; }
-  .program-stack-item > span { font-size: 11px; }
-  .program-stack-item strong { font-size: clamp(15px, 1.2vw, 18px); }
-  .program-stack-item > span:last-child { font-size: 12px; }
-  .program-stack-item svg { width: 18px; }
+  .split-slide { grid-template-columns: minmax(0, 1fr) minmax(440px, .88fr); gap: clamp(40px, 5vw, 84px); }
+  .credential-row { gap: 12px 22px; margin-top: clamp(20px, 3vh, 34px); }
+  .icon-label { min-height: 48px; font-size: clamp(16px, 1.25vw, 20px); font-weight: 700; }
+  .icon-label > span { width: 42px; height: 42px; }
+  .icon-label svg { width: 20px; }
+  .program-stack { padding: clamp(24px, 2.5vw, 34px); }
+  .aside-label { font-size: 14px; }
+  .program-stack-item { grid-template-columns: 34px 1fr 26px; padding-block: clamp(11px, 1.5vh, 16px); }
+  .program-stack-item > span { font-size: 14px; }
+  .program-stack-item strong { font-size: clamp(17px, 1.25vw, 21px); }
+  .program-stack-item svg { width: 20px; }
 
-  .team-before-graphic { margin-top: clamp(14px, 2vh, 22px); padding: clamp(14px, 1.4vw, 20px) clamp(16px, 1.8vw, 26px) 12px; }
-  .team-rail-label { margin-bottom: 9px; }
-  .team-rail-label span { font-size: 11px; }
-  .team-rail-label small { font-size: 13px; }
-  .rail-node { width: 32px; height: 32px; margin-bottom: 9px; font-size: 10px; }
-  .rail-role-card { min-height: 84px; padding: 10px 11px; }
-  .rail-role-card .role-icon { width: 28px; height: 28px; margin-bottom: 6px; }
-  .rail-role-card .role-icon svg { width: 16px; }
-  .rail-role-card b { font-size: clamp(14px, 1.1vw, 17px); }
-  .rail-role-card small { font-size: clamp(11px, .9vw, 13px); }
-  .rail-step { margin-top: 6px; font-size: 10px; }
-  .org-chart-divider { margin-top: 10px; padding-top: 7px; }
-  .org-chart-divider span { font-size: 11px; }
-  .org-chart-divider small { font-size: 12px; }
-  .partner-role-grid { margin-top: 7px; }
-  .partner-role-card { min-height: 52px; padding: 8px 11px; }
-  .partner-role-card .role-icon { width: 27px; height: 27px; }
-  .partner-role-card .role-icon svg { width: 16px; }
-  .partner-role-card b { font-size: 13px; }
-  .partner-role-card small { font-size: 10px; }
-  .org-chart-note { margin-top: 8px; font-size: 11px; }
+  .team-before-graphic { margin-top: clamp(12px, 1.8vh, 20px); padding: 14px clamp(18px, 1.8vw, 28px) 12px; }
+  .team-rail-label { margin-bottom: 8px; }
+  .team-rail-label span { font-size: 14px; }
+  .team-rail-label small { font-size: 15px; }
+  .rail-node { width: 34px; height: 34px; margin-bottom: 8px; font-size: 12px; }
+  .rail-role-card { min-height: 96px; padding: 12px 14px; }
+  .rail-role-card .role-icon { width: 30px; height: 30px; margin-bottom: 8px; }
+  .rail-role-card .role-icon svg { width: 18px; }
+  .rail-role-card b { font-size: clamp(17px, 1.35vw, 22px); }
+  .rail-role-card small { margin-top: 4px; font-size: clamp(14px, 1.05vw, 17px); }
+  .org-chart-divider { margin-top: 10px; padding-top: 8px; }
+  .org-chart-divider span { font-size: 14px; }
+  .partner-role-grid { margin-top: 8px; }
+  .partner-role-card { min-height: 56px; padding: 10px 14px; }
+  .partner-role-card .role-icon { width: 30px; height: 30px; }
+  .partner-role-card .role-icon svg { width: 18px; }
+  .partner-role-card b { font-size: clamp(16px, 1.2vw, 20px); }
+  .org-chart-note { margin-top: 9px; font-size: clamp(14px, 1.05vw, 17px); line-height: 1.25; }
+  .org-chart-note svg { width: 19px; }
 
-  .metaphor-note { font-size: clamp(13px, 1vw, 15px); }
-  .mini-principle { font-size: 14px; }
-  .map-comparison { margin-top: clamp(16px, 2.5vh, 26px); }
-  .map-comparison .bloom-panel { min-height: clamp(240px, 31vh, 320px); }
-  .fragment-map, .shared-map { height: clamp(210px, 18vw, 240px); }
-  .map-comparison + .metaphor-note { max-width: 1400px; margin-top: 12px; font-size: clamp(12px, .95vw, 14px); }
-  .catalog-card { min-height: clamp(118px, 15vh, 156px); }
-  .catalog-card > svg { width: 22px; }
-  .catalog-card strong { font-size: clamp(15px, 1.15vw, 18px); }
-  .catalog-card > span { font-size: 11px; }
+  .map-comparison { grid-template-columns: minmax(0, 1fr) 58px minmax(0, 1fr); margin-top: clamp(14px, 2vh, 22px); }
+  .map-comparison .bloom-panel { min-height: clamp(280px, 39vh, 350px); grid-template-columns: minmax(150px, .58fr) minmax(250px, 1.42fr); padding: 18px 22px; }
+  .bloom-label span { font-size: 14px; }
+  .bloom-label strong { max-width: 190px; font-size: clamp(20px, 1.5vw, 25px); }
+  .fragment-map, .shared-map { height: clamp(230px, 20vw, 280px); }
+  .map-fragment { padding: 10px; }
+  .map-fragment span { font-size: 10px; }
+  .map-fragment strong { font-size: clamp(13px, 1vw, 16px); }
+  .translation-table { width: 38%; min-height: 64px; }
+  .translation-table span { font-size: 10px; }
+  .translation-table strong { font-size: 13px; }
+  .map-core-label span { font-size: 10px; }
+  .map-core-label strong { font-size: clamp(12px, 1vw, 15px); }
+  .lens-glass { width: clamp(72px, 6.8vw, 98px); height: clamp(72px, 6.8vw, 98px); }
+  .lens-glass strong { font-size: clamp(12px, 1vw, 15px); }
+  .lens-glass small { font-size: 11px; }
 
-  .platform-kicker, .course-card > small, .footnote { font-size: 11px; }
-  .platform-capabilities span { padding: 8px 11px; font-size: 10px; }
-  .track-tile strong { font-size: clamp(17px, 1.4vw, 20px); }
-  .track-tile small { font-size: 12px; }
-  .track-tile > b { font-size: 11px; }
-  .course-card > strong { font-size: clamp(15px, 1.2vw, 18px); }
-  .course-card > small { font-size: clamp(11px, .9vw, 13px); }
-  .course-deliverable b { font-size: 11px; }
-  .course-deliverable small { font-size: 10px; }
-  .specialty-card h3 { font-size: clamp(20px, 1.8vw, 26px); }
-  .specialty-card li { font-size: clamp(12px, 1vw, 14px); }
-  .specialty-card > p { font-size: 11px; }
-  .capability-label { font-size: 11px; }
-  .capability-list span { font-size: clamp(13px, 1.1vw, 16px); }
-  .distinct-row b { font-size: 14px; }
-  .distinct-row span { font-size: 13px; }
-  .graduate-layout { min-height: clamp(300px, 45vh, 370px); }
+  .catalog-grid { margin-top: clamp(22px, 3.2vh, 34px); gap: clamp(12px, 1.4vw, 20px); }
+  .catalog-card { min-height: clamp(136px, 18vh, 172px); padding: clamp(18px, 1.7vw, 26px); }
+  .catalog-card > svg { width: 28px; }
+  .catalog-card strong { font-size: clamp(18px, 1.4vw, 23px); }
+
+  .program-architecture { margin-top: clamp(18px, 2.5vh, 28px); }
+  .core-platform { padding: clamp(24px, 2.5vw, 34px) clamp(28px, 3vw, 42px); }
+  .platform-kicker { font-size: 14px; }
+  .core-platform > strong { font-size: clamp(30px, 2.7vw, 42px); }
+  .platform-capabilities span { padding: 9px 13px; font-size: 14px; font-weight: 650; }
+  .track-connector { height: 38px; }
+  .track-connector::before { top: 19px; }
+  .track-connector span { height: 38px; }
+  .track-tile { grid-template-columns: 52px 1fr auto; min-height: 92px; padding: 18px 22px; }
+  .track-tile > span { width: 48px; height: 48px; }
+  .track-tile svg { width: 23px; }
+  .track-tile strong { font-size: clamp(21px, 1.6vw, 27px); }
+  .track-tile small { font-size: clamp(15px, 1.05vw, 18px); }
+  .track-tile > b { font-size: 15px; }
+  .architecture-equation { margin-top: clamp(16px, 2.2vh, 24px); padding: 14px 18px; }
+  .architecture-equation strong { font-size: clamp(18px, 1.45vw, 24px); }
+
+  .course-grid { margin-top: clamp(18px, 2.7vh, 28px); }
+  .course-card { min-height: clamp(250px, 35vh, 310px); padding: clamp(18px, 1.7vw, 24px); }
+  .course-top span { font-size: 14px; }
+  .course-top b { font-size: 13px; }
+  .course-card > svg { width: 30px; height: 30px; margin: clamp(22px, 3vh, 30px) 0 auto; }
+  .course-card > strong { min-height: 4.3em; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.2; }
+  .course-deliverable { margin-top: 14px; padding-top: 13px; }
+  .course-deliverable b { font-size: 13px; }
+  .course-deliverable small { margin-top: 5px; font-size: clamp(15px, 1.05vw, 18px); }
+  .responsibility-banner { margin-top: clamp(14px, 2vh, 22px); padding: 14px 20px; }
+  .responsibility-banner strong { font-size: 18px; }
+  .responsibility-banner span { font-size: 15px; }
+
+  .specialty-grid { margin-top: clamp(20px, 3vh, 32px); }
+  .specialty-card { min-height: clamp(310px, 43vh, 380px); padding: clamp(24px, 2.5vw, 34px); }
+  .specialty-head > span { width: 46px; height: 46px; }
+  .specialty-head svg { width: 23px; }
+  .specialty-head b { font-size: 22px; }
+  .specialty-head small { font-size: 14px; }
+  .specialty-card h3 { font-size: clamp(24px, 1.9vw, 31px); }
+  .specialty-card ul { gap: 11px; }
+  .specialty-card li { font-size: clamp(16px, 1.2vw, 20px); }
+  .specialty-card li svg { width: 17px; }
+  .specialty-card > p { font-size: clamp(14px, 1.05vw, 17px); font-weight: 650; }
+
+  .graduate-layout { min-height: clamp(310px, 45vh, 380px); margin-top: clamp(24px, 3.5vh, 40px); }
   .shared-capability, .distinct-capability { display: flex; flex-direction: column; justify-content: center; }
-  .pilot-statement { font-size: clamp(19px, 1.8vw, 26px); }
-  .pilot-step b { font-size: clamp(20px, 1.8vw, 26px); }
-  .pilot-step p { font-size: clamp(12px, 1vw, 14px); }
-  .takeaway-card strong { font-size: clamp(18px, 1.6vw, 23px); }
-  .takeaway-card small { font-size: clamp(11px, .95vw, 13px); }
-  .takeaway-card { min-height: clamp(220px, 30vh, 280px); }
-  .responsibility-banner strong { font-size: 15px; }
-  .responsibility-banner span { font-size: 12px; }
+  .shared-capability, .distinct-capability { padding: clamp(28px, 3vw, 42px); }
+  .capability-label { margin-bottom: 24px; font-size: 14px; }
+  .capability-list { gap: 16px 24px; }
+  .capability-list span { font-size: clamp(17px, 1.3vw, 21px); }
+  .capability-list svg { width: 18px; }
+  .distinct-row { grid-template-columns: 30px 62px 1fr; padding: 16px 0; }
+  .distinct-row svg { width: 21px; }
+  .distinct-row b { font-size: 18px; }
+  .distinct-row span { font-size: clamp(15px, 1.15vw, 19px); }
+
+  .pilot-statement { max-width: 1120px; font-size: clamp(22px, 1.8vw, 29px); font-weight: 540; }
+  .pilot-steps { margin-top: clamp(22px, 3.5vh, 40px); }
+  .pilot-step { min-height: clamp(190px, 27vh, 240px); }
+  .pilot-step > svg { width: 28px; }
+  .pilot-step b { font-size: clamp(25px, 2vw, 32px); }
+  .pilot-step p { font-size: clamp(16px, 1.25vw, 20px); }
+
+  .takeaway-flow { margin-top: clamp(24px, 3.5vh, 38px); }
+  .takeaway-card { min-height: clamp(230px, 32vh, 290px); padding: clamp(24px, 2.4vw, 34px); }
+  .takeaway-card > span { font-size: 14px; }
+  .takeaway-card > span svg { width: 18px; }
+  .takeaway-card strong { font-size: clamp(22px, 1.75vw, 28px); }
+  .takeaway-card small { font-size: clamp(15px, 1.15vw, 19px); }
+  .closing-line span, .closing-line b { font-size: 14px; }
 }
