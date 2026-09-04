@@ -73,6 +73,11 @@ function TitleSlide() {
 }
 
 function AboutSlide() {
+  const journey = [
+    { moment: 'Started here', title: 'Built the iOS program', icon: Smartphone },
+    { moment: 'Then', title: 'Office of Teaching and Learning', icon: GraduationCap },
+    { moment: 'Today', title: 'Senior Program Director', icon: Users },
+  ];
   const points = [
     'Started five new programs, beginning with iOS App Development.',
     'Guided faculty development in AI and its responsible, ethical use.',
@@ -84,10 +89,18 @@ function AboutSlide() {
     <article className="slide about-slide">
       <Eyebrow number="02">About me</Eyebrow>
       <h2 className="one-line-title">Nine years at MTECH. <em>Still building.</em></h2>
-      <p className="about-intro">Today I serve as Senior Program Director after working across program development and the Office of Teaching and Learning.</p>
+      <div className="about-journey" aria-label="My journey at MTECH">
+        {journey.map(({ moment, title, icon: Icon }) => (
+          <div className="about-journey-step" key={moment}>
+            <div className="about-journey-marker"><Icon aria-hidden="true" /></div>
+            <span>{moment}</span>
+            <strong>{title}</strong>
+          </div>
+        ))}
+      </div>
       <ul className="about-points">
-        {points.map((point, index) => (
-          <li key={point}><span>{String(index + 1).padStart(2, '0')}</span><p>{point}</p></li>
+        {points.map((point) => (
+          <li key={point}><span aria-hidden="true" /><p>{point}</p></li>
         ))}
       </ul>
     </article>
