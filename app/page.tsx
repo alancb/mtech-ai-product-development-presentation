@@ -30,7 +30,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 
-const SLIDE_COUNT = 13;
+const SLIDE_COUNT = 11;
 
 const sections = [
   'Opening',
@@ -39,8 +39,6 @@ const sections = [
   'The shift',
   'Today',
   'Proposal',
-  'Program',
-  'Core',
   'Core',
   'Specialties',
   'Outcomes',
@@ -76,12 +74,11 @@ function TitleSlide() {
   return (
     <article className="slide title-slide">
       <Eyebrow number="01">A vision for what comes next</Eyebrow>
-      <h1>Building for the way<br /><em>work works now.</em></h1>
+      <h1>Building for the way<br /><em>Product Development works now.</em></h1>
       <p className="title-deck">
         A shared foundation for AI-powered product teams — and a new model for technical education.
       </p>
       <div className="presenter-line">
-        <span className="presenter-initials">AB</span>
         <span><strong>Alan Barth</strong><small>Senior Program Director · MTECH</small></span>
       </div>
     </article>
@@ -101,7 +98,7 @@ function AboutSlide() {
     <article className="slide split-slide">
       <div className="split-copy">
         <Eyebrow number="02">A practitioner’s perspective</Eyebrow>
-        <h2>I build programs.<br /><em>I build products.</em></h2>
+        <h2>Why I’m qualified to guide<br /><em>this direction.</em></h2>
         <p className="lead">
           My work lives at the intersection of education, technology, and the jobs our students are preparing to do.
         </p>
@@ -109,6 +106,7 @@ function AboutSlide() {
           <IconLabel icon={Briefcase}>Senior Program Director</IconLabel>
           <IconLabel icon={Apple}>Former Apple education team</IconLabel>
           <IconLabel icon={Smartphone}>Published App Store developer</IconLabel>
+          <IconLabel icon={GraduationCap}>Master’s in Instructional Design &amp; Educational Technology</IconLabel>
           <IconLabel icon={Sparkles}>Daily AI learner and builder</IconLabel>
         </div>
       </div>
@@ -139,40 +137,66 @@ function HandoffSlide() {
       <Eyebrow number="03">Before AI</Eyebrow>
       <div className="heading-row">
         <div>
-          <h2>Expertise moved<br /><em>left to right.</em></h2>
+          <h2>Product teams<br /><em>before AI</em></h2>
           <p className="lead">Each role owned a clear lane. Collaboration happened mostly at the handoff.</p>
         </div>
         <span className="era-pill">The handoff era</span>
       </div>
-      <div className="handoff-flow">
-        {teamRoles.map(({ label, description, icon: Icon }, index) => (
-          <div className="handoff-unit" key={label}>
-            <div className="role-card" style={{ '--delay': `${index * 110}ms` } as React.CSSProperties}>
-              <span className="role-icon"><Icon aria-hidden="true" /></span>
-              <b>{label}</b>
-              <small>{description}</small>
+      <div className="team-before-graphic">
+        <div className="team-rail-label"><span>One product moves through four specialties</span><small>Shared responsibility was narrow</small></div>
+        <div className="team-rail">
+          {teamRoles.map(({ label, description, icon: Icon }, index) => (
+            <div className="rail-role" key={label} style={{ '--delay': `${index * 110}ms` } as React.CSSProperties}>
+              <div className="rail-node">{String(index + 1).padStart(2, '0')}</div>
+              <div className="rail-role-card">
+                <span className="role-icon"><Icon aria-hidden="true" /></span>
+                <b>{label}</b>
+                <small>{description}</small>
+              </div>
+              {index < teamRoles.length - 1 && <ArrowRight className="rail-arrow" aria-hidden="true" />}
             </div>
-            {index < teamRoles.length - 1 && (
-              <div className="handoff-arrow"><span>handoff</span><ArrowRight aria-hidden="true" /></div>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="rail-caption"><span>01 · Define</span><span>02 · Shape</span><span>03 · Build</span><span>04 · Verify</span></div>
       </div>
-      <p className="center-note"><span /> Shared responsibility was narrow <span /></p>
     </article>
   );
 }
 
-function Bloom({ modern }: { modern?: boolean }) {
-  const labels = ['Product', 'Design', 'Develop', 'Test'];
-  return (
-    <div className={`bloom ${modern ? 'bloom-modern' : 'bloom-old'}`} aria-label={modern ? 'Large shared core with smaller specialties' : 'Small shared core with large specialties'}>
-      <div className="bloom-core">
-        <strong>{modern ? 'Shared product fluency' : 'Shared'}</strong>
-        <small>{modern ? 'AI · systems · ethics · user needs' : 'coordination'}</small>
+const mapLenses = [
+  { label: 'Design', detail: 'flows', position: 'lens-product' },
+  { label: 'Engineering', detail: 'architecture', position: 'lens-engineering' },
+  { label: 'Testing', detail: 'risks', position: 'lens-testing' },
+  { label: 'Product', detail: 'outcomes', position: 'lens-product-outcomes' },
+];
+
+function MapGraphic({ modern }: { modern?: boolean }) {
+  if (!modern) {
+    return (
+      <div className="fragment-map" aria-label="Four partially disconnected map fragments with a translation table">
+        {['Product outcomes', 'Design flows', 'Engineering architecture', 'Testing risks'].map((label, index) => (
+          <div className={`map-fragment fragment-${index + 1}`} key={label}>
+            <span>MAP {String(index + 1).padStart(2, '0')}</span>
+            <strong>{label}</strong>
+            <i /><i /><i />
+          </div>
+        ))}
+        <div className="translation-table"><span>TRANSLATION</span><strong>Compare<br />→ translate</strong></div>
       </div>
-      {labels.map((label, index) => (
-        <div className={`petal petal-${index + 1}`} key={label}><span>{label}</span></div>
+    );
+  }
+
+  return (
+    <div className="shared-map" aria-label="One shared product map with four specialty lenses">
+      <div className="map-grid-lines" />
+      <div className="map-core-label"><span>ONE SHARED MAP</span><strong>Users · AI · Systems · Ethics</strong></div>
+      <div className="map-route map-route-one" /><div className="map-route map-route-two" /><div className="map-route map-route-three" />
+      <div className="map-pin map-pin-one" /><div className="map-pin map-pin-two" /><div className="map-pin map-pin-three" />
+      {mapLenses.map(({ label, detail, position }) => (
+        <div className={`lens ${position}`} key={label}>
+          <div className="lens-glass"><strong>{label}</strong><small>{detail}</small></div>
+          <span className="lens-handle" />
+        </div>
       ))}
     </div>
   );
@@ -184,22 +208,22 @@ function SunflowerSlide() {
       <Eyebrow number="04">The AI-enabled team</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2>Broader common ground.<br /><em>Deeper specialization.</em></h2>
-          <p className="lead">AI raises the floor of what everyone can do — and the bar for what only an expert can do.</p>
+          <h2>One shared map.<br /><em>Specialists add the resolution.</em></h2>
+          <p className="lead">AI gives the whole team one common picture of the product. Expertise is how each role sees what others cannot.</p>
         </div>
       </div>
-      <div className="bloom-comparison">
+      <div className="map-comparison">
         <div className="bloom-panel">
-          <div className="bloom-label"><span>Then</span><strong>Small center, large silos</strong></div>
-          <Bloom />
+          <div className="bloom-label"><span>Then</span><strong>Each discipline kept its own map</strong></div>
+          <MapGraphic />
         </div>
         <div className="shift-arrow"><ArrowRight aria-hidden="true" /></div>
         <div className="bloom-panel bloom-panel-modern">
-          <div className="bloom-label"><span>Now</span><strong>Large center, sharp specialties</strong></div>
-          <Bloom modern />
+          <div className="bloom-label"><span>Now</span><strong>One map, four higher-resolution lenses</strong></div>
+          <MapGraphic modern />
         </div>
       </div>
-      <p className="metaphor-note"><Lightbulb aria-hidden="true" /> Think of the shift as wildflower → sunflower: the center becomes the team’s shared capability; the petals are the craft only a specialist can bring.</p>
+      <p className="metaphor-note"><Lightbulb aria-hidden="true" /> Everyone works from one shared map of the product — users, AI, systems, and ethics — but each specialist sees it through a higher-resolution lens: design, engineering, testing, or product.</p>
     </article>
   );
 }
@@ -209,7 +233,7 @@ const currentPrograms = [
   { name: 'Digital Design', lane: 'Design', icon: Palette },
   { name: 'Digital Marketing', lane: 'Growth', icon: Megaphone },
   { name: 'iOS App Development', lane: 'Mobile', icon: Smartphone },
-  { name: 'Medical Coding & Billing', lane: 'Healthcare', icon: ShieldCheck },
+  { name: 'Networking & Cybersecurity', lane: 'Infrastructure', icon: Network },
   { name: 'Software Quality Assurance', lane: 'Testing', icon: TestTube2 },
   { name: 'Web Development', lane: 'Web', icon: Code2 },
 ];
@@ -279,35 +303,14 @@ function ProposedModelSlide() {
           ))}
         </div>
       </div>
+      <div className="program-facts" aria-label="Program facts">
+        <div><strong>720</strong><span>Total hours</span></div>
+        <div><strong>24</strong><span>Credits</span></div>
+        <div><strong>2</strong><span>Stackable stages</span></div>
+        <div><strong>1</strong><span>Portfolio product</span></div>
+        <div><strong>∞</strong><span>Ethics woven through</span></div>
+      </div>
       <p className="footnote">A focused redesign where AI has compressed team boundaries fastest — not a claim that every existing program disappears.</p>
-    </article>
-  );
-}
-
-function ProgramOverviewSlide() {
-  return (
-    <article className="slide">
-      <Eyebrow number="07">Program at a glance</Eyebrow>
-      <h2>Two stages. One<br /><em>complete graduate.</em></h2>
-      <div className="program-equation">
-        <div className="equation-block equation-core">
-          <span>Stage 01</span><strong>360</strong><small>hours of shared core</small>
-        </div>
-        <div className="equation-symbol">+</div>
-        <div className="equation-block equation-track">
-          <span>Stage 02</span><strong>360</strong><small>hours in one specialty</small>
-        </div>
-        <div className="equation-symbol">=</div>
-        <div className="equation-block equation-total">
-          <span>Credential</span><strong>720</strong><small>hours · 24 credits</small>
-        </div>
-      </div>
-      <div className="overview-pills">
-        <span><Layers3 aria-hidden="true" /> Stackable</span>
-        <span><Briefcase aria-hidden="true" /> Industry aligned</span>
-        <span><Rocket aria-hidden="true" /> Portfolio driven</span>
-        <span><ShieldCheck aria-hidden="true" /> Ethics throughout</span>
-      </div>
     </article>
   );
 }
@@ -323,7 +326,7 @@ const coreCourses = [
 function CoreCoursesSlide() {
   return (
     <article className="slide">
-      <Eyebrow number="08">The shared core</Eyebrow>
+      <Eyebrow number="07">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2>Five courses build<br /><em>the new center.</em></h2>
@@ -341,6 +344,21 @@ function CoreCoursesSlide() {
           </div>
         ))}
       </div>
+      <div className="core-throughline">
+        <span className="throughline-label">One idea, carried end to end</span>
+        <div className="throughline-steps">
+          {learningChain.map(({ label, artifact, icon: Icon }, index) => (
+            <div className="throughline-step" key={label}>
+              <span><Icon aria-hidden="true" /></span><b>{label}</b><small>{artifact}</small>
+              {index < learningChain.length - 1 && <ArrowRight aria-hidden="true" />}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="responsibility-banner">
+        <ShieldCheck aria-hidden="true" />
+        <div><strong>Ethics is not a separate unit.</strong><span>Privacy, verification, guardrails, and accountability live inside the work where decisions are made.</span></div>
+      </div>
     </article>
   );
 }
@@ -352,30 +370,6 @@ const learningChain = [
   { label: 'Build', artifact: 'Working product', icon: Code2 },
   { label: 'Automate', artifact: 'Agent workflow', icon: Bot },
 ];
-
-function CoreWhySlide() {
-  return (
-    <article className="slide">
-      <Eyebrow number="09">Why this core matters</Eyebrow>
-      <h2>Every course hands forward<br /><em>something real.</em></h2>
-      <p className="lead">Students do not complete five disconnected classes. They develop one idea through the full product lifecycle.</p>
-      <div className="learning-chain">
-        {learningChain.map(({ label, artifact, icon: Icon }, index) => (
-          <div className="learning-step" key={label} style={{ '--delay': `${index * 100}ms` } as React.CSSProperties}>
-            <div className="step-dot"><Icon aria-hidden="true" /></div>
-            <b>{label}</b>
-            <span>{artifact}</span>
-            {index < learningChain.length - 1 && <ArrowRight className="step-arrow" aria-hidden="true" />}
-          </div>
-        ))}
-      </div>
-      <div className="responsibility-banner">
-        <ShieldCheck aria-hidden="true" />
-        <div><strong>Ethics is not a separate unit.</strong><span>Privacy, verification, guardrails, and accountability live inside the work where decisions are made.</span></div>
-      </div>
-    </article>
-  );
-}
 
 const specialties = [
   {
@@ -404,7 +398,7 @@ const specialties = [
 function SpecialtiesSlide() {
   return (
     <article className="slide">
-      <Eyebrow number="10">The specialties</Eyebrow>
+      <Eyebrow number="08">The specialties</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2>Same center.<br /><em>Different edge.</em></h2>
@@ -434,7 +428,7 @@ function OutcomesSlide() {
   ];
   return (
     <article className="slide">
-      <Eyebrow number="11">The graduate</Eyebrow>
+      <Eyebrow number="09">The graduate</Eyebrow>
       <h2>Not a generalist.<br /><em>A specialist who sees the whole.</em></h2>
       <div className="graduate-layout">
         <div className="shared-capability">
@@ -461,7 +455,7 @@ function PilotSlide() {
   ];
   return (
     <article className="slide pilot-slide">
-      <Eyebrow number="12">The invitation</Eyebrow>
+      <Eyebrow number="10">The invitation</Eyebrow>
       <h2>Let us take the<br /><em>first measured step.</em></h2>
       <p className="pilot-statement">This is not a request for every college to adopt the model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
       <div className="pilot-steps">
@@ -478,7 +472,7 @@ function PilotSlide() {
 function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
-      <Eyebrow number="13">One idea to take home</Eyebrow>
+      <Eyebrow number="11">One idea to take home</Eyebrow>
       <h2>Work changed.<br /><em>Our program model should, too.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
@@ -511,9 +505,7 @@ const slides = [
   <SunflowerSlide key="sunflower" />,
   <CurrentPortfolioSlide key="portfolio" />,
   <ProposedModelSlide key="proposal" />,
-  <ProgramOverviewSlide key="overview" />,
   <CoreCoursesSlide key="core" />,
-  <CoreWhySlide key="core-why" />,
   <SpecialtiesSlide key="specialties" />,
   <OutcomesSlide key="outcomes" />,
   <PilotSlide key="pilot" />,
@@ -574,11 +566,7 @@ export default function Home() {
       <div className="ambient ambient-two" />
 
       <header className="presentation-header">
-        <div className="brand-mark"><Sparkles aria-hidden="true" /></div>
-        <div>
-          <p className="brand-name">MTECH</p>
-          <p className="brand-context">AI Product Development</p>
-        </div>
+        <img className="brand-logo" src="/mtech-logo.svg" alt="Mountainland Technical College" />
         <p className="section-name">{sections[activeSlide]}</p>
         <div className="slide-counter">{String(activeSlide + 1).padStart(2, '0')} / {String(SLIDE_COUNT).padStart(2, '0')}</div>
       </header>
