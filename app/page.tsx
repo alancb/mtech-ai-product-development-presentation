@@ -156,7 +156,6 @@ function HandoffSlide() {
                 <small>{description}</small>
               </div>
               <small className="rail-step">{String(index + 1).padStart(2, '0')} · {['Define', 'Shape', 'Build', 'Verify'][index]}</small>
-              {index < teamRoles.length - 1 && <ArrowRight className="rail-arrow" aria-hidden="true" />}
             </div>
           ))}
         </div>
