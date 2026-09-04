@@ -152,24 +152,42 @@ function HandoffSlide() {
   );
 }
 
-const workbenchRoles = [
-  { label: 'Product', tool: 'Roadmap', icon: Compass, position: 'position-product' },
-  { label: 'Design', tool: 'Wireframe', icon: Pencil, position: 'position-design' },
-  { label: 'Develop', tool: 'Code', icon: Code2, position: 'position-develop' },
-  { label: 'Test', tool: 'Inspect', icon: Search, position: 'position-test' },
-];
-
 function DeskDiagram() {
+  const desks = [
+    { label: 'Product', artifact: 'roadmap', position: 'position-product' },
+    { label: 'Design', artifact: 'wireframe', position: 'position-design' },
+    { label: 'Develop', artifact: 'code', position: 'position-develop' },
+    { label: 'Test', artifact: 'checklist', position: 'position-test' },
+  ];
+
   return (
     <div className="desk-diagram" aria-label="Four separate desks connected to a small handoff tray">
       <svg className="desk-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <line x1="24" y1="23" x2="50" y2="50" />
-        <line x1="76" y1="23" x2="50" y2="50" />
-        <line x1="24" y1="77" x2="50" y2="50" />
-        <line x1="76" y1="77" x2="50" y2="50" />
+        <defs>
+          <marker id="handoff-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 0 L 8 4 L 0 8 z" />
+          </marker>
+        </defs>
+        <line x1="25" y1="23" x2="47" y2="46" markerEnd="url(#handoff-arrow)" />
+        <line x1="53" y1="46" x2="75" y2="23" markerEnd="url(#handoff-arrow)" />
+        <line x1="25" y1="77" x2="47" y2="54" markerEnd="url(#handoff-arrow)" />
+        <line x1="53" y1="54" x2="75" y2="77" markerEnd="url(#handoff-arrow)" />
       </svg>
-      {workbenchRoles.map(({ label, position }) => <div className={`separate-desk ${position}`} key={label}>{label}</div>)}
-      <div className="handoff-tray"><span>Handoffs</span></div>
+      {desks.map(({ label, artifact, position }) => (
+        <div className={`literal-desk ${position}`} key={label}>
+          <span className="desk-role-label">{label}</span>
+          <div className="desk-surface">
+            <div className={`partial-artifact ${artifact}-artifact`} aria-label={`${label} partial work product`}>
+              {artifact === 'roadmap' && <><i /><i /><i /></>}
+              {artifact === 'wireframe' && <><b /><i /><i /></>}
+              {artifact === 'code' && <><b /><i /><i /><i /></>}
+              {artifact === 'checklist' && <><i /><i /><i /></>}
+            </div>
+          </div>
+          <span className="desk-chair" aria-hidden="true" />
+        </div>
+      ))}
+      <div className="handoff-tray"><span>Handoffs</span><i aria-hidden="true" /></div>
     </div>
   );
 }
@@ -177,21 +195,33 @@ function DeskDiagram() {
 function SharedWorkbenchDiagram() {
   return (
     <div className="shared-workbench-diagram" aria-label="Four specialists working on one shared product workbench">
-      <div className="workbench-surface">
-        <svg className="workbench-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="19" y1="23" x2="50" y2="44" />
-          <line x1="81" y1="23" x2="50" y2="44" />
-          <line x1="19" y1="77" x2="50" y2="44" />
-          <line x1="81" y1="77" x2="50" y2="44" />
-        </svg>
-        {workbenchRoles.map(({ label, tool, icon: Icon, position }) => (
-          <div className={`workbench-role ${position}`} key={label}>
-            <Icon aria-hidden="true" />
-            <span><b>{label}</b><small>{tool}</small></span>
-          </div>
-        ))}
-        <div className="shared-product-object"><Layers3 aria-hidden="true" /><span>One product</span></div>
-        <div className="workbench-label"><strong>Shared product fluency</strong><span>AI · systems · ethics · user needs</span></div>
+      <div className="literal-workbench">
+        <div className="shared-fluency-area">
+          <strong>Shared product fluency</strong>
+          <span>AI · systems · ethics · user needs</span>
+        </div>
+        <div className="shared-prototype" aria-label="Shared product prototype">
+          <div className="prototype-screen"><b /><i /><i /></div>
+          <div className="prototype-system"><i /><i /><i /><span /><span /></div>
+          <div className="prototype-flow"><i /><span /><i /><span /><i /></div>
+        </div>
+
+        <div className="specialist-station station-product">
+          <span className="station-label">Product</span>
+          <div className="roadmap-tool"><Compass aria-hidden="true" /><i /><i /><i /></div>
+        </div>
+        <div className="specialist-station station-design">
+          <span className="station-label">Design</span>
+          <div className="design-tool"><div><b /><i /><i /></div><Pencil aria-hidden="true" /></div>
+        </div>
+        <div className="specialist-station station-develop">
+          <span className="station-label">Develop</span>
+          <div className="code-tool"><Code2 aria-hidden="true" /><i /><i /><i /></div>
+        </div>
+        <div className="specialist-station station-test">
+          <span className="station-label">Test</span>
+          <div className="test-tool"><div><i /><i /><i /></div><Search aria-hidden="true" /></div>
+        </div>
       </div>
     </div>
   );
