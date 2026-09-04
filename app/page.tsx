@@ -1,17 +1,20 @@
 'use client';
 
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   Bot,
   Check,
   Code2,
+  Compass,
   Database,
   GraduationCap,
   Layers3,
   Megaphone,
   Network,
   Palette,
+  Pencil,
   Rocket,
   Search,
   ShieldCheck,
@@ -149,66 +152,68 @@ function HandoffSlide() {
   );
 }
 
-const mapLenses = [
-  { label: 'Design', detail: 'flows', position: 'lens-product' },
-  { label: 'Engineering', detail: 'architecture', position: 'lens-engineering' },
-  { label: 'Testing', detail: 'risks', position: 'lens-testing' },
-  { label: 'Product', detail: 'outcomes', position: 'lens-product-outcomes' },
+const workbenchRoles = [
+  { label: 'Product', tool: 'Roadmap', icon: Compass, position: 'position-product' },
+  { label: 'Design', tool: 'Wireframe', icon: Pencil, position: 'position-design' },
+  { label: 'Develop', tool: 'Code', icon: Code2, position: 'position-develop' },
+  { label: 'Test', tool: 'Inspect', icon: Search, position: 'position-test' },
 ];
 
-function MapGraphic({ modern }: { modern?: boolean }) {
-  if (!modern) {
-    return (
-      <div className="fragment-map" aria-label="Four partially disconnected map fragments with a translation table">
-        {['Product outcomes', 'Design flows', 'Engineering architecture', 'Testing risks'].map((label, index) => (
-          <div className={`map-fragment fragment-${index + 1}`} key={label}>
-            <span>MAP {String(index + 1).padStart(2, '0')}</span>
-            <strong>{label}</strong>
-            <i /><i /><i />
-          </div>
-        ))}
-        <div className="translation-table"><span>TRANSLATION</span><strong>Compare<br />→ translate</strong></div>
-      </div>
-    );
-  }
-
+function DeskDiagram() {
   return (
-    <div className="shared-map" aria-label="One shared product map with four specialty lenses">
-      <div className="map-grid-lines" />
-      <div className="map-core-label"><span>ONE SHARED MAP</span><strong>Users · AI · Systems · Ethics</strong></div>
-      <div className="map-route map-route-one" /><div className="map-route map-route-two" /><div className="map-route map-route-three" />
-      <div className="map-pin map-pin-one" /><div className="map-pin map-pin-two" /><div className="map-pin map-pin-three" />
-      {mapLenses.map(({ label, detail, position }) => (
-        <div className={`lens ${position}`} key={label}>
-          <div className="lens-glass"><strong>{label}</strong><small>{detail}</small></div>
-          <span className="lens-handle" />
-        </div>
-      ))}
+    <div className="desk-diagram" aria-label="Four separate desks connected to a small handoff tray">
+      <svg className="desk-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="24" y1="23" x2="50" y2="50" />
+        <line x1="76" y1="23" x2="50" y2="50" />
+        <line x1="24" y1="77" x2="50" y2="50" />
+        <line x1="76" y1="77" x2="50" y2="50" />
+      </svg>
+      {workbenchRoles.map(({ label, position }) => <div className={`separate-desk ${position}`} key={label}>{label}</div>)}
+      <div className="handoff-tray"><span>Handoffs</span></div>
     </div>
   );
 }
 
-function SunflowerSlide() {
+function SharedWorkbenchDiagram() {
   return (
-    <article className="slide">
+    <div className="shared-workbench-diagram" aria-label="Four specialists working on one shared product workbench">
+      <div className="workbench-surface">
+        <svg className="workbench-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="19" y1="23" x2="50" y2="44" />
+          <line x1="81" y1="23" x2="50" y2="44" />
+          <line x1="19" y1="77" x2="50" y2="44" />
+          <line x1="81" y1="77" x2="50" y2="44" />
+        </svg>
+        {workbenchRoles.map(({ label, tool, icon: Icon, position }) => (
+          <div className={`workbench-role ${position}`} key={label}>
+            <Icon aria-hidden="true" />
+            <span><b>{label}</b><small>{tool}</small></span>
+          </div>
+        ))}
+        <div className="shared-product-object"><Layers3 aria-hidden="true" /><span>One product</span></div>
+        <div className="workbench-label"><strong>Shared product fluency</strong><span>AI · systems · ethics · user needs</span></div>
+      </div>
+    </div>
+  );
+}
+
+function WorkbenchSlide() {
+  return (
+    <article className="slide workbench-slide">
       <Eyebrow number="05">The AI-enabled team</Eyebrow>
-      <div className="heading-row compact-heading">
-        <div>
-          <h2 className="one-line-title">Shared map. <em>Specialized lenses.</em></h2>
-          <p className="lead">AI gives everyone the same product context. Specialists reveal the detail others cannot see.</p>
+      <h2 className="one-line-title">Separate desks. <em>Shared workbench.</em></h2>
+      <div className="workbench-comparison">
+        <div className="workbench-panel workbench-then">
+          <div className="workbench-panel-copy"><span>Then</span><strong>Separate work,<br />small handoff point</strong></div>
+          <DeskDiagram />
+        </div>
+        <div className="workbench-shift" aria-hidden="true"><ArrowDown /></div>
+        <div className="workbench-panel workbench-now">
+          <div className="workbench-panel-copy"><span>Now</span><strong>One product,<br />shared workbench</strong></div>
+          <SharedWorkbenchDiagram />
         </div>
       </div>
-      <div className="map-comparison">
-        <div className="bloom-panel">
-          <div className="bloom-label"><span>Then</span><strong>Each discipline kept its own map</strong></div>
-          <MapGraphic />
-        </div>
-        <div className="shift-arrow"><ArrowRight aria-hidden="true" /></div>
-        <div className="bloom-panel bloom-panel-modern">
-          <div className="bloom-label"><span>Now</span><strong>One map, four higher-resolution lenses</strong></div>
-          <MapGraphic modern />
-        </div>
-      </div>
+      <p className="workbench-caption">Instead of passing work between separate roles, the team shapes one product together—sharing context while bringing different specialist tools.</p>
     </article>
   );
 }
@@ -460,7 +465,7 @@ const slides = [
   <AboutSlide key="about" />,
   <HandoffSlide key="handoff" />,
   <CurrentPortfolioSlide key="portfolio" />,
-  <SunflowerSlide key="sunflower" />,
+  <WorkbenchSlide key="workbench" />,
   <ProposedModelSlide key="proposal" />,
   <CoreCoursesSlide key="core" />,
   <SpecialtiesSlide key="specialties" />,
