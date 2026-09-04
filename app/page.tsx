@@ -1,11 +1,9 @@
 'use client';
 
 import {
-  Apple,
   ArrowLeft,
   ArrowRight,
   Bot,
-  Briefcase,
   Check,
   Code2,
   Database,
@@ -23,7 +21,6 @@ import {
   TestTube2,
   Users,
   Workflow,
-  type LucideIcon,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -46,20 +43,6 @@ const sections = [
   'Pilot',
   'Takeaway',
 ];
-
-type IconLabelProps = {
-  icon: LucideIcon;
-  children: React.ReactNode;
-};
-
-function IconLabel({ icon: Icon, children }: IconLabelProps) {
-  return (
-    <div className="icon-label">
-      <span><Icon aria-hidden="true" /></span>
-      <strong>{children}</strong>
-    </div>
-  );
-}
 
 function Eyebrow({ number, children }: { number: string; children: React.ReactNode }) {
   return (
@@ -87,40 +70,23 @@ function TitleSlide() {
 }
 
 function AboutSlide() {
-  const programs = [
-    'iOS App Development',
-    'Networking & Cybersecurity',
-    'Data Technology',
-    'Software Quality Assurance',
-    'Civil Construction',
-  ];
-
   return (
-    <article className="slide split-slide">
-      <div className="split-copy">
-        <Eyebrow number="02">About me</Eyebrow>
-        <h2>A little about<br /><em>my work.</em></h2>
-        <p className="lead">
-          I build programs around the way work is changing. Here is the short version.
-        </p>
-        <div className="credential-row">
-          <IconLabel icon={Briefcase}>Senior Program Director at MTECH</IconLabel>
-          <IconLabel icon={Apple}>Worked on Apple’s education team</IconLabel>
-          <IconLabel icon={Smartphone}>Published an app to the App Store</IconLabel>
-          <IconLabel icon={GraduationCap}>Master’s in Instructional Design &amp; Educational Technology</IconLabel>
-          <IconLabel icon={Sparkles}>Always learning and building with AI</IconLabel>
+    <article className="slide about-slide">
+      <Eyebrow number="02">About me</Eyebrow>
+      <div className="about-layout">
+        <div className="about-copy">
+          <h2>Nine years at MTECH.<br /><em>Always building.</em></h2>
+          <p className="about-story">
+            I started by building the iOS program, then moved into the Office of Teaching and Learning. Today I serve as Senior Program Director.
+          </p>
         </div>
+        <aside className="about-ai-card">
+          <Sparkles aria-hidden="true" />
+          <span>What keeps me curious</span>
+          <h3>I love all things AI.</h3>
+          <p>I use it every day to build useful things, experiment, teach, and make everyday life easier.</p>
+        </aside>
       </div>
-      <aside className="program-stack" aria-label="Programs launched">
-        <p className="aside-label">Programs I’ve worked on</p>
-        {programs.map((program, index) => (
-          <div className="program-stack-item" key={program} style={{ '--delay': `${index * 70}ms` } as React.CSSProperties}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <strong>{program}</strong>
-            <Check aria-hidden="true" />
-          </div>
-        ))}
-      </aside>
     </article>
   );
 }

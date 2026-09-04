@@ -114,6 +114,14 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .presenter-line small { margin-top: 2px; color: var(--muted-foreground); font-size: 12px; }
 
 .split-slide { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(380px, .88fr); align-items: center; gap: clamp(38px, 7vw, 110px); }
+.about-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr); align-items: stretch; gap: clamp(34px, 6vw, 90px); }
+.about-copy { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 4px; }
+.about-story { max-width: 780px; margin: clamp(22px, 3.5vh, 38px) 0 0; color: var(--ink-soft); font-size: clamp(18px, 1.65vw, 25px); font-weight: 520; line-height: 1.48; }
+.about-ai-card { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 3.4vw, 46px); border: 1px solid var(--border); border-radius: 24px; background: rgba(255,255,255,.92); box-shadow: 10px 10px 0 rgba(109,0,32,.05); }
+.about-ai-card > svg { width: 36px; height: 36px; color: var(--primary); }
+.about-ai-card > span { margin-top: clamp(28px, 4vh, 42px); color: var(--primary); font-size: 12px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.about-ai-card h3 { margin-top: 12px; font-size: clamp(30px, 3vw, 44px); line-height: 1.05; letter-spacing: -.035em; }
+.about-ai-card p { margin: 18px 0 0; color: var(--ink-soft); font-size: clamp(17px, 1.45vw, 22px); font-weight: 520; line-height: 1.48; }
 .credential-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; margin-top: clamp(24px, 4vh, 44px); max-width: 720px; }
 .icon-label { display: flex; align-items: center; gap: 10px; min-height: 42px; color: #222; font-size: clamp(12px, 1vw, 14px); }
 .icon-label > span { flex: 0 0 auto; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 8px; color: var(--primary); background: #f7f7f7; }
@@ -351,6 +359,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .slide-transition { min-height: calc(100dvh - 210px); height: auto; }
   .slide { align-self: start; }
   .split-slide { grid-template-columns: 1fr; }
+  .about-layout { grid-template-columns: 1fr; }
   .program-stack { margin-top: 8px; }
   .heading-row { display: block; }
   .era-pill, .proposal-badge { margin-top: 18px; }
@@ -579,11 +588,11 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .section-name { font-size: 14px; font-weight: 800; }
   .slide-counter { font-size: 14px; font-weight: 700; }
   .slide-stage {
-    padding: clamp(76px, 8.7vh, 100px) clamp(26px, 2.8vw, 54px) clamp(80px, 9.5vh, 102px);
+    padding: clamp(88px, 10.5vh, 112px) clamp(26px, 2.8vw, 54px) clamp(78px, 9.2vh, 98px);
   }
   .slide { max-width: 1720px; }
-  h1 { max-width: 1320px; }
-  h2 { max-width: 1320px; }
+  h1 { max-width: 1320px; font-size: clamp(58px, 6.7vw, 98px); font-weight: 650; letter-spacing: -.036em; line-height: 1; }
+  h2, .compact-heading h2 { max-width: 1320px; font-size: clamp(43px, 4.05vw, 66px); font-weight: 650; letter-spacing: -.036em; line-height: 1; }
   .eyebrow { margin-bottom: clamp(10px, 1.4vh, 16px); font-size: clamp(14px, 1.05vw, 17px); }
   .title-deck { max-width: 1180px; font-size: clamp(24px, 1.9vw, 31px); font-weight: 560; line-height: 1.32; }
   .lead { max-width: 1160px; font-size: clamp(21px, 1.7vw, 27px); font-weight: 540; line-height: 1.32; }
@@ -591,7 +600,13 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .presenter-line strong { font-size: 20px; }
   .presenter-line small { font-size: 16px; }
 
-  .split-slide { grid-template-columns: minmax(0, 1fr) minmax(440px, .88fr); gap: clamp(40px, 5vw, 84px); }
+  .about-layout { grid-template-columns: minmax(0, 1.08fr) minmax(410px, .72fr); gap: clamp(42px, 5.5vw, 92px); min-height: clamp(390px, 57vh, 510px); }
+  .about-story { max-width: 760px; font-size: clamp(23px, 1.8vw, 29px); line-height: 1.43; }
+  .about-ai-card { padding: clamp(30px, 3.2vw, 48px); }
+  .about-ai-card > svg { width: 42px; height: 42px; }
+  .about-ai-card > span { font-size: 14px; }
+  .about-ai-card h3 { font-size: clamp(36px, 3.1vw, 50px); font-weight: 680; }
+  .about-ai-card p { font-size: clamp(20px, 1.55vw, 25px); line-height: 1.42; }
   .credential-row { gap: 12px 22px; margin-top: clamp(20px, 3vh, 34px); }
   .icon-label { min-height: 48px; font-size: clamp(16px, 1.25vw, 20px); font-weight: 700; }
   .icon-label > span { width: 42px; height: 42px; }
@@ -659,7 +674,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .track-tile strong { font-size: clamp(21px, 1.6vw, 27px); }
   .track-tile small { font-size: clamp(15px, 1.05vw, 18px); }
   .track-tile > b { font-size: 15px; }
-  .architecture-equation { margin-top: clamp(16px, 2.2vh, 24px); padding: 14px 18px; }
+  .architecture-equation { margin-top: clamp(12px, 1.8vh, 20px); padding: 11px 18px; }
   .architecture-equation strong { font-size: clamp(18px, 1.45vw, 24px); }
 
   .course-grid { margin-top: clamp(18px, 2.7vh, 28px); }
@@ -667,11 +682,11 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .course-top span { font-size: 14px; }
   .course-top b { font-size: 13px; }
   .course-card > svg { width: 30px; height: 30px; margin: clamp(22px, 3vh, 30px) 0 auto; }
-  .course-card > strong { min-height: 4.3em; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.2; }
+  .course-card > strong { min-height: 3.9em; font-size: clamp(17px, 1.35vw, 22px); line-height: 1.2; }
   .course-deliverable { margin-top: 14px; padding-top: 13px; }
   .course-deliverable b { font-size: 13px; }
   .course-deliverable small { margin-top: 5px; font-size: clamp(15px, 1.05vw, 18px); }
-  .responsibility-banner { margin-top: clamp(14px, 2vh, 22px); padding: 14px 20px; }
+  .responsibility-banner { margin-top: 10px; padding: 12px 20px; }
   .responsibility-banner strong { font-size: 18px; }
   .responsibility-banner span { font-size: 15px; }
 
