@@ -620,6 +620,10 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 
   .metaphor-note { font-size: clamp(13px, 1vw, 15px); }
   .mini-principle { font-size: 14px; }
+  .map-comparison { margin-top: clamp(16px, 2.5vh, 26px); }
+  .map-comparison .bloom-panel { min-height: clamp(240px, 31vh, 320px); }
+  .fragment-map, .shared-map { height: clamp(210px, 18vw, 240px); }
+  .map-comparison + .metaphor-note { max-width: 1400px; margin-top: 12px; font-size: clamp(12px, .95vw, 14px); }
   .catalog-card { min-height: clamp(118px, 15vh, 156px); }
   .catalog-card > svg { width: 22px; }
   .catalog-card strong { font-size: clamp(15px, 1.15vw, 18px); }
@@ -641,11 +645,13 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .capability-list span { font-size: clamp(13px, 1.1vw, 16px); }
   .distinct-row b { font-size: 14px; }
   .distinct-row span { font-size: 13px; }
+  .graduate-layout { min-height: clamp(300px, 45vh, 370px); }
   .pilot-statement { font-size: clamp(19px, 1.8vw, 26px); }
   .pilot-step b { font-size: clamp(20px, 1.8vw, 26px); }
   .pilot-step p { font-size: clamp(12px, 1vw, 14px); }
   .takeaway-card strong { font-size: clamp(18px, 1.6vw, 23px); }
   .takeaway-card small { font-size: clamp(11px, .95vw, 13px); }
+  .takeaway-card { min-height: clamp(220px, 30vh, 280px); }
   .responsibility-banner strong { font-size: 15px; }
   .responsibility-banner span { font-size: 12px; }
 }
