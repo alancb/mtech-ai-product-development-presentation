@@ -646,6 +646,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .distinct-row b { font-size: 14px; }
   .distinct-row span { font-size: 13px; }
   .graduate-layout { min-height: clamp(300px, 45vh, 370px); }
+  .shared-capability, .distinct-capability { display: flex; flex-direction: column; justify-content: center; }
   .pilot-statement { font-size: clamp(19px, 1.8vw, 26px); }
   .pilot-step b { font-size: clamp(20px, 1.8vw, 26px); }
   .pilot-step p { font-size: clamp(12px, 1vw, 14px); }
