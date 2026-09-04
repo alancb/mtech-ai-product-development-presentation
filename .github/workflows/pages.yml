@@ -45,10 +45,14 @@ jobs:
           const prefix = '/mtech-ai-product-development-presentation';
           const textExtensions = new Set(['.html', '.js', '.css', '.json', '.rsc']);
 
+          const nextAssets = path.join(root, '_next');
+          if (fs.existsSync(nextAssets)) fs.renameSync(nextAssets, path.join(root, 'assets'));
+
           function rewrite(filePath) {
             const extension = path.extname(filePath);
             if (!textExtensions.has(extension)) return;
             let content = fs.readFileSync(filePath, 'utf8');
+            content = content.replaceAll(`${prefix}/_next/`, `${prefix}/assets/`);
             for (const asset of ['mtech-logo.svg', 'mtech-mark.png', 'og.png', 'favicon.svg']) {
               content = content.replaceAll(`"/${asset}"`, `"${prefix}/${asset}"`);
             }
