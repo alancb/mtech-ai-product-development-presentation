@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'A vision for AI Product Development education at MTECH.',
   openGraph: {
     title: 'Building for the Way Product Development Works Now',
-    description: 'A shared foundation for AI-powered product teams — and a new model for technical education.',
+    description: 'A shared foundation for AI-powered product teams, and a new model for technical education.',
     type: 'website',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Building for the way Product Development works now.' }],
   },

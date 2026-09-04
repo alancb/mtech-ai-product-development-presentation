@@ -78,7 +78,7 @@ function TitleSlide() {
       <Eyebrow number="01">A vision for what comes next</Eyebrow>
       <h1>Building for the way<br /><em>Product Development works now.</em></h1>
       <p className="title-deck">
-        A shared foundation for AI-powered product teams — and a new model for technical education.
+        A shared foundation for AI-powered product teams, and a new model for technical education.
       </p>
       <div className="presenter-line">
         <span><strong>Alan Barth</strong><small>Senior Program Director · MTECH</small></span>
@@ -155,11 +155,11 @@ function HandoffSlide() {
                 <b>{label}</b>
                 <small>{description}</small>
               </div>
+              <small className="rail-step">{String(index + 1).padStart(2, '0')} · {['Define', 'Shape', 'Build', 'Verify'][index]}</small>
               {index < teamRoles.length - 1 && <ArrowRight className="rail-arrow" aria-hidden="true" />}
             </div>
           ))}
         </div>
-        <div className="rail-caption"><span>01 · Define</span><span>02 · Shape</span><span>03 · Build</span><span>04 · Verify</span></div>
       </div>
     </article>
   );
@@ -225,7 +225,7 @@ function SunflowerSlide() {
           <MapGraphic modern />
         </div>
       </div>
-      <p className="metaphor-note"><Lightbulb aria-hidden="true" /> Everyone works from one shared map of the product — users, AI, systems, and ethics — but each specialist sees it through a higher-resolution lens: design, engineering, testing, or product.</p>
+      <p className="metaphor-note"><Lightbulb aria-hidden="true" /> Everyone works from one shared map of the product, including users, AI, systems, and ethics, but each specialist sees it through a higher-resolution lens: design, engineering, testing, or product.</p>
     </article>
   );
 }
@@ -282,7 +282,7 @@ function ProposedModelSlide() {
       <div className="heading-row compact-heading">
         <div>
           <h2>One shared foundation.<br /><em>Three clear specialties.</em></h2>
-          <p className="lead">Students first learn to think, plan, build, and verify together — then develop a distinctive craft.</p>
+          <p className="lead">Students first learn to think, plan, build, and verify together, then develop a distinctive craft.</p>
         </div>
         <span className="proposal-badge"><Sparkles aria-hidden="true" /> AI Product Development</span>
       </div>
@@ -312,7 +312,7 @@ function ProposedModelSlide() {
         <div><strong>1</strong><span>Portfolio product</span></div>
         <div><strong>∞</strong><span>Ethics woven through</span></div>
       </div>
-      <p className="footnote">A focused redesign where AI has compressed team boundaries fastest — not a claim that every existing program disappears.</p>
+      <p className="footnote">A focused redesign where AI has compressed team boundaries fastest, not a claim that every existing program disappears.</p>
     </article>
   );
 }
@@ -453,7 +453,7 @@ function PilotSlide() {
   const steps = [
     { number: '01', label: 'Build', text: 'Launch the pilot at MTECH.', icon: Rocket },
     { number: '02', label: 'Measure', text: 'Track learning, completion, and employer response.', icon: Search },
-    { number: '03', label: 'Share', text: 'Report honestly on what worked — and what did not.', icon: Workflow },
+    { number: '03', label: 'Share', text: 'Report honestly on what worked, and what did not.', icon: Workflow },
   ];
   return (
     <article className="slide pilot-slide">
@@ -579,7 +579,6 @@ export default function Home() {
 
       <footer className="presentation-footer">
         <div className="progress-track"><span style={{ width: `${((activeSlide + 1) / SLIDE_COUNT) * 100}%` }} /></div>
-        <div className="nav-hint"><span>Navigate</span><kbd>←</kbd><kbd>→</kbd><span className="space-hint">or space</span></div>
         <div className="slide-dots" aria-label="Choose slide">
           {slides.map((_, index) => (
             <button key={index} className={activeSlide === index ? 'active' : ''} onClick={() => goTo(index)} aria-label={`Go to slide ${index + 1}`} aria-current={activeSlide === index ? 'step' : undefined} />
