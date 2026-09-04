@@ -316,13 +316,12 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .takeaway-primary { color: white; border-color: var(--primary); background: var(--primary); box-shadow: 0 18px 50px rgba(15,101,92,.16); }
 .takeaway-primary > span { color: #f2ca70; }
 .takeaway-primary small { color: #c3ddd5; }
-.closing-line { display: flex; align-items: center; justify-content: space-between; margin-top: clamp(20px, 3.5vh, 36px); padding-top: 14px; border-top: 1px solid #cdc8bd; }
-.closing-line span { color: var(--primary); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-.closing-line b { font-size: 11px; }
-
 .presentation-footer { position: absolute; inset: auto 0 0; height: clamp(76px, 10.5vh, 104px); display: flex; align-items: center; padding: 0 clamp(24px, 4.7vw, 76px); gap: 20px; z-index: 20; }
 .progress-track { position: absolute; inset: 0 0 auto; height: 2px; background: rgba(16,40,45,.09); }
 .progress-track span { display: block; height: 100%; background: var(--gold); transition: width .45s ease; }
+.footer-signoff { display: flex; align-items: center; gap: 13px; color: var(--foreground); }
+.footer-signoff span { padding-right: 13px; border-right: 1px solid var(--border); color: var(--primary); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.footer-signoff b { font-size: 11px; }
 .slide-dots { position: absolute; left: 50%; top: 50%; display: flex; align-items: center; gap: 6px; transform: translate(-50%, -50%); }
 .slide-dots button { width: 6px; height: 6px; padding: 0; border: 0; border-radius: 999px; background: #c5c1b7; cursor: pointer; transition: width .25s ease, background .25s ease; }
 .slide-dots button:hover { background: #777f7a; }
@@ -385,7 +384,9 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .pilot-steps { grid-template-columns: 1fr; }
   .takeaway-flow { grid-template-columns: 1fr; }
   .takeaway-flow > svg { margin: auto; transform: rotate(90deg); }
-  .closing-line { gap: 20px; }
+  .footer-signoff { gap: 9px; }
+  .footer-signoff span { padding-right: 9px; font-size: 9px; }
+  .footer-signoff b { font-size: 9px; }
 }
 
 @media (max-width: 540px) {
@@ -426,7 +427,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .presentation-header { border-bottom: 1px solid rgba(194,194,194,.56); background: rgba(255,255,255,.92); backdrop-filter: blur(14px); }
 .section-name { color: #5f5f5f; }
 .eyebrow-line, .progress-track span { background: var(--primary); }
-.eyebrow, .eyebrow b, .closing-line span { color: var(--primary); }
+.eyebrow, .eyebrow b, .footer-signoff span { color: var(--primary); }
 .title-deck, .lead { color: #4a4a4a; }
 .role-icon, .track-tile > span { color: var(--primary); background: var(--secondary); }
 .center-note span, .track-connector::before, .track-connector span { background: var(--border); }
@@ -842,7 +843,7 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .takeaway-card > span svg { width: 18px; }
   .takeaway-card strong { font-size: clamp(22px, 1.75vw, 28px); }
   .takeaway-card small { font-size: clamp(15px, 1.15vw, 19px); }
-  .closing-line span, .closing-line b { font-size: 14px; }
+  .footer-signoff span, .footer-signoff b { font-size: 14px; }
 
 }
 

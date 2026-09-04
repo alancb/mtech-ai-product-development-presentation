@@ -481,7 +481,6 @@ function TakeawaySlide() {
           <small>Ready for the way product teams work now.</small>
         </div>
       </div>
-      <div className="closing-line"><span>AI Product Development</span><b>Alan Barth · MTECH</b></div>
     </article>
   );
 }
@@ -565,6 +564,9 @@ export default function Home() {
 
       <footer className="presentation-footer">
         <div className="progress-track"><span style={{ width: `${((activeSlide + 1) / SLIDE_COUNT) * 100}%` }} /></div>
+        {activeSlide === SLIDE_COUNT - 1 && (
+          <div className="footer-signoff"><span>AI Product Development</span><b>Alan Barth · MTECH</b></div>
+        )}
         <div className="slide-dots" aria-label="Choose slide">
           {slides.map((_, index) => (
             <button key={index} className={activeSlide === index ? 'active' : ''} onClick={() => goTo(index)} aria-label={`Go to slide ${index + 1}`} aria-current={activeSlide === index ? 'step' : undefined} />
