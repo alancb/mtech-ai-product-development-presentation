@@ -30,6 +30,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 
+export const dynamic = 'force-static';
+
 const SLIDE_COUNT = 11;
 
 const sections = [

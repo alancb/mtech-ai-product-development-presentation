@@ -1,0 +1,86 @@
+name: Deploy presentation to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the static presentation
+        run: GITHUB_PAGES=true npm run build
+
+      - name: Prepare the Pages artifact
+        run: |
+          test -f dist/client/index.html
+          touch dist/client/.nojekyll
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+
+          const root = path.resolve('dist/client');
+          const prefix = '/mtech-ai-product-development-presentation';
+          const textExtensions = new Set(['.html', '.js', '.css', '.json', '.rsc']);
+
+          function rewrite(filePath) {
+            const extension = path.extname(filePath);
+            if (!textExtensions.has(extension)) return;
+            let content = fs.readFileSync(filePath, 'utf8');
+            for (const asset of ['mtech-logo.svg', 'mtech-mark.png', 'og.png', 'favicon.svg']) {
+              content = content.replaceAll(`"/${asset}"`, `"${prefix}/${asset}"`);
+            }
+            fs.writeFileSync(filePath, content);
+          }
+
+          function walk(directory) {
+            for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+              const filePath = path.join(directory, entry.name);
+              if (entry.isDirectory()) walk(filePath);
+              else rewrite(filePath);
+            }
+          }
+
+          walk(root);
+          NODE
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
