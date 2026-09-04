@@ -114,14 +114,17 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .presenter-line small { margin-top: 2px; color: var(--muted-foreground); font-size: 12px; }
 
 .split-slide { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(380px, .88fr); align-items: center; gap: clamp(38px, 7vw, 110px); }
-.about-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr); align-items: stretch; gap: clamp(34px, 6vw, 90px); }
-.about-copy { display: flex; flex-direction: column; justify-content: flex-start; padding-top: 4px; }
-.about-story { max-width: 780px; margin: clamp(22px, 3.5vh, 38px) 0 0; color: var(--ink-soft); font-size: clamp(18px, 1.65vw, 25px); font-weight: 520; line-height: 1.48; }
-.about-ai-card { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 3.4vw, 46px); border: 1px solid var(--border); border-radius: 24px; background: rgba(255,255,255,.92); box-shadow: 10px 10px 0 rgba(109,0,32,.05); }
-.about-ai-card > svg { width: 36px; height: 36px; color: var(--primary); }
-.about-ai-card > span { margin-top: clamp(28px, 4vh, 42px); color: var(--primary); font-size: 12px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
-.about-ai-card h3 { margin-top: 12px; font-size: clamp(30px, 3vw, 44px); line-height: 1.05; letter-spacing: -.035em; }
-.about-ai-card p { margin: 18px 0 0; color: var(--ink-soft); font-size: clamp(17px, 1.45vw, 22px); font-weight: 520; line-height: 1.48; }
+.about-intro { max-width: 1040px; margin: clamp(16px, 2.4vh, 26px) 0 0; color: var(--ink-soft); font-size: clamp(17px, 1.5vw, 23px); font-weight: 520; line-height: 1.42; }
+.about-journey { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 48px); margin-top: clamp(34px, 5.5vh, 58px); }
+.about-journey::before { content: ''; position: absolute; left: 30px; right: 30px; top: 29px; height: 2px; background: rgba(109,0,32,.22); }
+.about-journey-step { position: relative; min-height: 142px; }
+.about-journey-marker { position: relative; z-index: 1; width: 60px; height: 60px; display: grid; place-items: center; margin-bottom: 20px; border: 2px solid var(--primary); border-radius: 50%; color: var(--primary); background: #fff; box-shadow: 0 8px 24px rgba(109,0,32,.08); }
+.about-journey-marker svg { width: 25px; height: 25px; }
+.about-journey-step > span { display: block; color: var(--primary); font-size: 11px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.about-journey-step > strong { display: block; max-width: 310px; margin-top: 8px; font-size: clamp(20px, 1.75vw, 27px); line-height: 1.2; }
+.about-throughline { display: flex; align-items: center; gap: 16px; margin: clamp(28px, 4vh, 42px) 0 0; padding-top: clamp(20px, 2.8vh, 28px); border-top: 1px solid var(--border); color: var(--ink-soft); font-size: clamp(17px, 1.45vw, 22px); line-height: 1.4; }
+.about-throughline svg { flex: 0 0 auto; width: 30px; height: 30px; color: var(--primary); }
+.about-throughline b { color: var(--foreground); }
 .credential-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; margin-top: clamp(24px, 4vh, 44px); max-width: 720px; }
 .icon-label { display: flex; align-items: center; gap: 10px; min-height: 42px; color: #222; font-size: clamp(12px, 1vw, 14px); }
 .icon-label > span { flex: 0 0 auto; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 8px; color: var(--primary); background: #f7f7f7; }
@@ -359,7 +362,10 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .slide-transition { min-height: calc(100dvh - 210px); height: auto; }
   .slide { align-self: start; }
   .split-slide { grid-template-columns: 1fr; }
-  .about-layout { grid-template-columns: 1fr; }
+  .about-journey { grid-template-columns: 1fr; gap: 22px; }
+  .about-journey::before { left: 29px; right: auto; top: 30px; bottom: 30px; width: 2px; height: auto; }
+  .about-journey-step { min-height: 0; padding-left: 82px; }
+  .about-journey-marker { position: absolute; left: 0; top: 0; }
   .program-stack { margin-top: 8px; }
   .heading-row { display: block; }
   .era-pill, .proposal-badge { margin-top: 18px; }
@@ -600,13 +606,10 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .presenter-line strong { font-size: 20px; }
   .presenter-line small { font-size: 16px; }
 
-  .about-layout { grid-template-columns: minmax(0, 1.08fr) minmax(410px, .72fr); gap: clamp(42px, 5.5vw, 92px); min-height: clamp(390px, 57vh, 510px); }
-  .about-story { max-width: 760px; font-size: clamp(23px, 1.8vw, 29px); line-height: 1.43; }
-  .about-ai-card { padding: clamp(30px, 3.2vw, 48px); }
-  .about-ai-card > svg { width: 42px; height: 42px; }
-  .about-ai-card > span { font-size: 14px; }
-  .about-ai-card h3 { font-size: clamp(36px, 3.1vw, 50px); font-weight: 680; }
-  .about-ai-card p { font-size: clamp(20px, 1.55vw, 25px); line-height: 1.42; }
+  .about-intro { max-width: 1180px; font-size: clamp(21px, 1.6vw, 27px); }
+  .about-journey-step > span { font-size: 14px; }
+  .about-journey-step > strong { max-width: 360px; font-size: clamp(23px, 1.7vw, 29px); }
+  .about-throughline { font-size: clamp(20px, 1.55vw, 26px); }
   .credential-row { gap: 12px 22px; margin-top: clamp(20px, 3vh, 34px); }
   .icon-label { min-height: 48px; font-size: clamp(16px, 1.25vw, 20px); font-weight: 700; }
   .icon-label > span { width: 42px; height: 42px; }
@@ -728,4 +731,8 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .takeaway-card strong { font-size: clamp(22px, 1.75vw, 28px); }
   .takeaway-card small { font-size: clamp(15px, 1.15vw, 19px); }
   .closing-line span, .closing-line b { font-size: 14px; }
+}
+
+@media (min-width: 1100px) {
+  .one-line-title { max-width: none; font-size: clamp(36px, 3vw, 56px); white-space: nowrap; }
 }

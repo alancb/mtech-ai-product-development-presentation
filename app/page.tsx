@@ -58,7 +58,7 @@ function TitleSlide() {
   return (
     <article className="slide title-slide">
       <Eyebrow number="01">A vision for what comes next</Eyebrow>
-      <h1>Preparing students for the<br /><em>future of product development</em></h1>
+      <h1>Preparing students for the <em>future of product development</em></h1>
       <p className="title-deck">
         A shared foundation for AI-powered product teams, and a new model for technical education.
       </p>
@@ -70,23 +70,27 @@ function TitleSlide() {
 }
 
 function AboutSlide() {
+  const journey = [
+    { moment: 'Started here', title: 'Built the iOS program', icon: Smartphone },
+    { moment: 'Then', title: 'Office of Teaching and Learning', icon: GraduationCap },
+    { moment: 'Today', title: 'Senior Program Director', icon: Users },
+  ];
+
   return (
     <article className="slide about-slide">
       <Eyebrow number="02">About me</Eyebrow>
-      <div className="about-layout">
-        <div className="about-copy">
-          <h2>Nine years at MTECH.<br /><em>Always building.</em></h2>
-          <p className="about-story">
-            I started by building the iOS program, then moved into the Office of Teaching and Learning. Today I serve as Senior Program Director.
-          </p>
-        </div>
-        <aside className="about-ai-card">
-          <Sparkles aria-hidden="true" />
-          <span>What keeps me curious</span>
-          <h3>I love all things AI.</h3>
-          <p>I use it every day to build useful things, experiment, teach, and make everyday life easier.</p>
-        </aside>
+      <h2 className="one-line-title">MTECH has been home for nine years.</h2>
+      <p className="about-intro">I have grown alongside the college, moving through a few different roles while staying close to building and learning.</p>
+      <div className="about-journey" aria-label="My journey at MTECH">
+        {journey.map(({ moment, title, icon: Icon }) => (
+          <div className="about-journey-step" key={moment}>
+            <div className="about-journey-marker"><Icon aria-hidden="true" /></div>
+            <span>{moment}</span>
+            <strong>{title}</strong>
+          </div>
+        ))}
       </div>
+      <p className="about-throughline"><Sparkles aria-hidden="true" /><span><b>The throughline:</b> I love using AI to build useful things and make everyday life easier.</span></p>
     </article>
   );
 }
@@ -112,7 +116,7 @@ function HandoffSlide() {
       <Eyebrow number="03">Before AI</Eyebrow>
       <div className="heading-row">
         <div>
-          <h2>Product teams<br /><em>before AI</em></h2>
+          <h2 className="one-line-title">Product teams <em>before AI</em></h2>
           <p className="lead">Work moved through a mostly linear handoff. Partner teams supported the product from outside the core.</p>
         </div>
       </div>
@@ -190,7 +194,7 @@ function SunflowerSlide() {
       <Eyebrow number="05">The AI-enabled team</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2>One shared map.<br /><em>Specialists add the resolution.</em></h2>
+          <h2 className="one-line-title">Shared map. <em>Specialized lenses.</em></h2>
           <p className="lead">AI gives everyone the same product context. Specialists reveal the detail others cannot see.</p>
         </div>
       </div>
@@ -225,7 +229,7 @@ function CurrentPortfolioSlide() {
       <Eyebrow number="04">Our portfolio today</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2>Our programs reflect<br /><em>the old team model.</em></h2>
+          <h2 className="one-line-title">Our programs reflect <em>the old team model.</em></h2>
           <p className="lead">Strong vertical lanes. Students learn one part of the work, not the full path from product decision to launch.</p>
         </div>
       </div>
@@ -257,7 +261,7 @@ function ProposedModelSlide() {
       <Eyebrow number="06">The proposed model</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2>One shared foundation.<br /><em>Three clear specialties.</em></h2>
+          <h2 className="one-line-title">One shared foundation. <em>Three clear specialties.</em></h2>
           <p className="lead">Students first learn to think, plan, build, and verify together, then develop a distinctive craft.</p>
         </div>
       </div>
@@ -299,7 +303,7 @@ function CoreCoursesSlide() {
       <Eyebrow number="07">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2>Five courses build<br /><em>the new center.</em></h2>
+          <h2 className="one-line-title">Five courses build <em>the new center.</em></h2>
           <p className="lead">The largest investment is the common capability every modern product teammate needs.</p>
         </div>
         <div className="core-total"><strong>360</strong><span>hours<br />12 credits</span></div>
@@ -354,7 +358,7 @@ function SpecialtiesSlide() {
       <Eyebrow number="08">The specialties</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2>Same center.<br /><em>Different edge.</em></h2>
+          <h2 className="one-line-title">Same center. <em>Different edge.</em></h2>
           <p className="lead">Each 360-hour track turns shared fluency into a distinct, employable craft.</p>
         </div>
       </div>
@@ -382,7 +386,7 @@ function OutcomesSlide() {
   return (
     <article className="slide">
       <Eyebrow number="09">The graduate</Eyebrow>
-      <h2>Not a generalist.<br /><em>A specialist who sees the whole.</em></h2>
+      <h2 className="one-line-title">A specialist who sees the whole.</h2>
       <div className="graduate-layout">
         <div className="shared-capability">
           <span className="capability-label"><Users aria-hidden="true" /> Every graduate can</span>
@@ -409,7 +413,7 @@ function PilotSlide() {
   return (
     <article className="slide pilot-slide">
       <Eyebrow number="10">The invitation</Eyebrow>
-      <h2>Let us take the<br /><em>first measured step.</em></h2>
+      <h2 className="one-line-title">Let us take the <em>first measured step.</em></h2>
       <p className="pilot-statement">This is not a request for every college to adopt the model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
       <div className="pilot-steps">
         {steps.map(({ number, label, text, icon: Icon }, index) => (
@@ -426,7 +430,7 @@ function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
       <Eyebrow number="11">One idea to take home</Eyebrow>
-      <h2>Work changed.<br /><em>Our program model should, too.</em></h2>
+      <h2 className="one-line-title">Work changed. <em>Our program model should, too.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
           <span><Sparkles aria-hidden="true" /> The shift</span>
