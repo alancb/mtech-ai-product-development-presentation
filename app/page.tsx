@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  ArrowDown,
   ArrowLeft,
   ArrowRight,
   Bot,
@@ -31,13 +30,14 @@ import { Button } from '@/components/ui/button';
 
 export const dynamic = 'force-static';
 
-const SLIDE_COUNT = 11;
+const SLIDE_COUNT = 12;
 
 const sections = [
   'Opening',
   'Perspective',
   'The shift',
   'Today',
+  'The shift',
   'The shift',
   'Proposal',
   'Core',
@@ -236,23 +236,28 @@ function SharedWorkbenchDiagram() {
   );
 }
 
-function WorkbenchSlide() {
+function SeparateDesksSlide() {
   return (
-    <article className="slide workbench-slide">
-      <Eyebrow number="05">The AI-enabled team</Eyebrow>
-      <h2 className="one-line-title">Separate desks. <em>Shared workbench.</em></h2>
-      <div className="workbench-comparison">
-        <div className="workbench-panel workbench-then">
-          <div className="workbench-panel-copy"><span>Then</span><strong>Separate work,<br />small handoff point</strong></div>
-          <DeskDiagram />
-        </div>
-        <div className="workbench-shift" aria-hidden="true"><ArrowDown /></div>
-        <div className="workbench-panel workbench-now">
-          <div className="workbench-panel-copy"><span>Now</span><strong>One product,<br />shared workbench</strong></div>
-          <SharedWorkbenchDiagram />
-        </div>
+    <article className="slide workbench-slide workbench-detail-slide">
+      <Eyebrow number="05">Before AI</Eyebrow>
+      <h2 className="one-line-title">Separate desks. Small handoff point.</h2>
+      <p className="lead">Four work surfaces, four partial views, and one narrow exchange point.</p>
+      <div className="workbench-single-panel workbench-then">
+        <DeskDiagram />
       </div>
-      <p className="workbench-caption">Instead of passing work between separate roles, the team shapes one product together—sharing context while bringing different specialist tools.</p>
+    </article>
+  );
+}
+
+function SharedWorkbenchSlide() {
+  return (
+    <article className="slide workbench-slide workbench-detail-slide">
+      <Eyebrow number="06">The AI-enabled team</Eyebrow>
+      <h2 className="one-line-title">One product. Shared workbench.</h2>
+      <p className="lead">The team shapes one product together, sharing context while bringing different specialist tools.</p>
+      <div className="workbench-single-panel workbench-now">
+        <SharedWorkbenchDiagram />
+      </div>
     </article>
   );
 }
@@ -302,7 +307,7 @@ const trackSummaries = [
 function ProposedModelSlide() {
   return (
     <article className="slide proposal-slide">
-      <Eyebrow number="06">The proposed model</Eyebrow>
+      <Eyebrow number="07">The proposed model</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">One shared foundation. <em>Three clear specialties.</em></h2>
@@ -344,7 +349,7 @@ const coreCourses = [
 function CoreCoursesSlide() {
   return (
     <article className="slide core-slide">
-      <Eyebrow number="07">The shared core</Eyebrow>
+      <Eyebrow number="08">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">Five courses build <em>the new center.</em></h2>
@@ -399,7 +404,7 @@ const specialties = [
 function SpecialtiesSlide() {
   return (
     <article className="slide specialties-slide">
-      <Eyebrow number="08">The specialties</Eyebrow>
+      <Eyebrow number="09">The specialties</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">Same center. <em>Different edge.</em></h2>
@@ -429,7 +434,7 @@ function OutcomesSlide() {
   ];
   return (
     <article className="slide outcomes-slide">
-      <Eyebrow number="09">The graduate</Eyebrow>
+      <Eyebrow number="10">The graduate</Eyebrow>
       <h2 className="one-line-title">A specialist who sees the whole.</h2>
       <div className="graduate-layout">
         <div className="shared-capability">
@@ -456,7 +461,7 @@ function PilotSlide() {
   ];
   return (
     <article className="slide pilot-slide">
-      <Eyebrow number="10">The invitation</Eyebrow>
+      <Eyebrow number="11">The invitation</Eyebrow>
       <h2 className="one-line-title">Let us take the <em>first measured step.</em></h2>
       <p className="pilot-statement">This is not a request for every college to adopt the model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
       <div className="pilot-steps">
@@ -473,7 +478,7 @@ function PilotSlide() {
 function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
-      <Eyebrow number="11">One idea to take home</Eyebrow>
+      <Eyebrow number="12">One idea to take home</Eyebrow>
       <h2 className="one-line-title">Work changed. <em>Our program model should, too.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
@@ -503,7 +508,8 @@ const slides = [
   <AboutSlide key="about" />,
   <HandoffSlide key="handoff" />,
   <CurrentPortfolioSlide key="portfolio" />,
-  <WorkbenchSlide key="workbench" />,
+  <SeparateDesksSlide key="separate-desks" />,
+  <SharedWorkbenchSlide key="shared-workbench" />,
   <ProposedModelSlide key="proposal" />,
   <CoreCoursesSlide key="core" />,
   <SpecialtiesSlide key="specialties" />,
