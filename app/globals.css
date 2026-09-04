@@ -427,7 +427,8 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .catalog-card, .track-tile, .course-card, .specialty-card, .pilot-step, .takeaway-card { border-color: var(--border); background: rgba(255,255,255,.92); box-shadow: 0 12px 34px rgba(0,0,0,.045); }
 .catalog-card::after { background: rgba(109,0,32,.055); }
 .catalog-summary { color: var(--foreground); border-color: var(--border); background: rgba(255,255,255,.92); box-shadow: 0 12px 34px rgba(0,0,0,.045); }
-.catalog-summary > svg, .catalog-summary > span { color: var(--primary); }
+.catalog-summary > svg { color: var(--primary); }
+.catalog-summary > span { color: var(--muted-foreground); }
 .catalog-summary::after { background: rgba(109,0,32,.055); }
 .core-platform { color: var(--foreground); border: 1px solid var(--border); background: rgba(255,255,255,.92); box-shadow: 0 12px 34px rgba(0,0,0,.045); }
 .core-platform::after { border-color: rgba(109,0,32,.1); box-shadow: 0 0 0 30px rgba(109,0,32,.03), 0 0 0 60px rgba(109,0,32,.02); }
