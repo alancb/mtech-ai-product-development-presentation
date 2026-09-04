@@ -336,25 +336,22 @@ function CoreCoursesSlide() {
         <div className="core-total"><strong>360</strong><span>hours<br />12 credits</span></div>
       </div>
       <div className="course-grid">
-        {coreCourses.map(({ number, hours, title, outcome, icon: Icon }, index) => (
-          <div className="course-card" key={number} style={{ '--delay': `${index * 80}ms` } as React.CSSProperties}>
-            <div className="course-top"><span>{number}</span><b>{hours}</b></div>
-            <Icon aria-hidden="true" />
-            <strong>{title}</strong>
-            <small>{outcome}</small>
-          </div>
-        ))}
-      </div>
-      <div className="core-throughline">
-        <span className="throughline-label">One idea, carried end to end</span>
-        <div className="throughline-steps">
-          {learningChain.map(({ label, artifact, icon: Icon }, index) => (
-            <div className="throughline-step" key={label}>
-              <span><Icon aria-hidden="true" /></span><b>{label}</b><small>{artifact}</small>
-              {index < learningChain.length - 1 && <ArrowRight aria-hidden="true" />}
+        {coreCourses.map(({ number, hours, title, outcome, icon: Icon }, index) => {
+          const step = learningChain[index];
+          const StepIcon = step.icon;
+          return (
+            <div className="course-card" key={number} style={{ '--delay': `${index * 80}ms` } as React.CSSProperties}>
+              <div className="course-top"><span>{number}</span><b>{hours}</b></div>
+              <Icon aria-hidden="true" />
+              <strong>{title}</strong>
+              <small className="course-outcome">{outcome}</small>
+              <div className="course-deliverable">
+                <span><StepIcon aria-hidden="true" /></span>
+                <div><b>{step.label}</b><small>{step.artifact}</small></div>
+              </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
       <div className="responsibility-banner">
         <ShieldCheck aria-hidden="true" />
