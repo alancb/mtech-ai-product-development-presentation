@@ -38,8 +38,8 @@ const sections = [
   'Opening',
   'Perspective',
   'The shift',
-  'The shift',
   'Today',
+  'The shift',
   'Proposal',
   'Core',
   'Specialties',
@@ -76,7 +76,7 @@ function TitleSlide() {
   return (
     <article className="slide title-slide">
       <Eyebrow number="01">A vision for what comes next</Eyebrow>
-      <h1>Building for the way<br /><em>Product Development works now.</em></h1>
+      <h1>Preparing students for the<br /><em>future of product development</em></h1>
       <p className="title-deck">
         A shared foundation for AI-powered product teams, and a new model for technical education.
       </p>
@@ -99,21 +99,21 @@ function AboutSlide() {
   return (
     <article className="slide split-slide">
       <div className="split-copy">
-        <Eyebrow number="02">A practitioner’s perspective</Eyebrow>
-        <h2>Why I’m qualified to guide<br /><em>this direction.</em></h2>
+        <Eyebrow number="02">About me</Eyebrow>
+        <h2>A little about<br /><em>my work.</em></h2>
         <p className="lead">
-          My work lives at the intersection of education, technology, and the jobs our students are preparing to do.
+          I build programs around the way work is changing. Here is the short version.
         </p>
         <div className="credential-row">
-          <IconLabel icon={Briefcase}>Senior Program Director</IconLabel>
-          <IconLabel icon={Apple}>Former Apple education team</IconLabel>
-          <IconLabel icon={Smartphone}>Published App Store developer</IconLabel>
+          <IconLabel icon={Briefcase}>Senior Program Director at MTECH</IconLabel>
+          <IconLabel icon={Apple}>Worked on Apple’s education team</IconLabel>
+          <IconLabel icon={Smartphone}>Published an app to the App Store</IconLabel>
           <IconLabel icon={GraduationCap}>Master’s in Instructional Design &amp; Educational Technology</IconLabel>
-          <IconLabel icon={Sparkles}>Daily AI learner and builder</IconLabel>
+          <IconLabel icon={Sparkles}>Always learning and building with AI</IconLabel>
         </div>
       </div>
       <aside className="program-stack" aria-label="Programs launched">
-        <p className="aside-label">Programs I’ve launched</p>
+        <p className="aside-label">Programs I’ve worked on</p>
         {programs.map((program, index) => (
           <div className="program-stack-item" key={program} style={{ '--delay': `${index * 70}ms` } as React.CSSProperties}>
             <span>{String(index + 1).padStart(2, '0')}</span>
@@ -131,7 +131,17 @@ const teamRoles = [
   { label: 'UX Design', description: 'Shape the experience', icon: Palette },
   { label: 'Development', description: 'Build the system', icon: Code2 },
   { label: 'Testing', description: 'Verify the result', icon: TestTube2 },
+  { label: 'Go live', description: 'Release, support, and learn', icon: Rocket },
 ];
+
+const partnerRoles = [
+  { label: 'Marketing', description: 'Position and promote', icon: Megaphone },
+  { label: 'Graphic Design', description: 'Shape the visual identity', icon: Palette },
+  { label: 'IT', description: 'Keep systems secure', icon: Network },
+  { label: 'Data', description: 'Measure outcomes', icon: Database },
+];
+
+const productSteps = ['Define', 'Shape', 'Build', 'Verify', 'Launch'];
 
 function HandoffSlide() {
   return (
@@ -140,12 +150,12 @@ function HandoffSlide() {
       <div className="heading-row">
         <div>
           <h2>Product teams<br /><em>before AI</em></h2>
-          <p className="lead">Each role owned a clear lane. Collaboration happened mostly at the handoff.</p>
+          <p className="lead">Product work moved from definition to go-live in a mostly linear handoff. Partner teams supported the work from outside the core.</p>
         </div>
         <span className="era-pill">The handoff era</span>
       </div>
       <div className="team-before-graphic">
-        <div className="team-rail-label"><span>One product moves through four specialties</span><small>Shared responsibility was narrow</small></div>
+        <div className="team-rail-label"><span>Inside the product team</span><small>Shared responsibility was narrow</small></div>
         <div className="team-rail">
           {teamRoles.map(({ label, description, icon: Icon }, index) => (
             <div className="rail-role" key={label} style={{ '--delay': `${index * 110}ms` } as React.CSSProperties}>
@@ -155,10 +165,20 @@ function HandoffSlide() {
                 <b>{label}</b>
                 <small>{description}</small>
               </div>
-              <small className="rail-step">{String(index + 1).padStart(2, '0')} · {['Define', 'Shape', 'Build', 'Verify'][index]}</small>
+              <small className="rail-step">{String(index + 1).padStart(2, '0')} · {productSteps[index]}</small>
             </div>
           ))}
         </div>
+        <div className="org-chart-divider"><span>Partner teams</span><small>Connected to the product team, but outside the core</small></div>
+        <div className="partner-role-grid">
+          {partnerRoles.map(({ label, description, icon: Icon }, index) => (
+            <div className="partner-role-card" key={label} style={{ '--delay': `${(index + teamRoles.length) * 110}ms` } as React.CSSProperties}>
+              <span className="role-icon"><Icon aria-hidden="true" /></span>
+              <div><b>{label}</b><small>{description}</small></div>
+            </div>
+          ))}
+        </div>
+        <p className="org-chart-note"><GraduationCap aria-hidden="true" /> We teach across this whole org chart: deep practice in product roles, plus the fluency to work well with partner teams.</p>
       </div>
     </article>
   );
@@ -206,7 +226,7 @@ function MapGraphic({ modern }: { modern?: boolean }) {
 function SunflowerSlide() {
   return (
     <article className="slide">
-      <Eyebrow number="04">The AI-enabled team</Eyebrow>
+      <Eyebrow number="05">The AI-enabled team</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2>One shared map.<br /><em>Specialists add the resolution.</em></h2>
@@ -242,13 +262,13 @@ const currentPrograms = [
 function CurrentPortfolioSlide() {
   return (
     <article className="slide">
-      <Eyebrow number="05">Our portfolio today</Eyebrow>
+      <Eyebrow number="04">Our portfolio today</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2>Our programs reflect<br /><em>the old team model.</em></h2>
-          <p className="lead">Strong vertical lanes. Limited shared foundation. Students learn their part of the work.</p>
+          <p className="lead">Strong vertical lanes. Limited shared foundation. Students learn their part of the work, not yet the full path from product decision to go-live.</p>
         </div>
-        <div className="mini-principle"><Layers3 aria-hidden="true" /><span><b>Program</b> = a job lane</span></div>
+        <div className="mini-principle"><Layers3 aria-hidden="true" /><span><b>Our opportunity</b> = teach the whole path</span></div>
       </div>
       <div className="catalog-grid">
         {currentPrograms.map(({ name, lane, icon: Icon }, index) => (
@@ -500,8 +520,8 @@ const slides = [
   <TitleSlide key="title" />,
   <AboutSlide key="about" />,
   <HandoffSlide key="handoff" />,
-  <SunflowerSlide key="sunflower" />,
   <CurrentPortfolioSlide key="portfolio" />,
+  <SunflowerSlide key="sunflower" />,
   <ProposedModelSlide key="proposal" />,
   <CoreCoursesSlide key="core" />,
   <SpecialtiesSlide key="specialties" />,

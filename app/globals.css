@@ -476,16 +476,28 @@ h1 em, h2 em { color: inherit; font-style: normal; }
 .team-rail-label { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
 .team-rail-label span { color: var(--primary); font-size: 10px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
 .team-rail-label small { color: var(--muted-foreground); font-size: 11px; }
-.team-rail { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.7vw, 22px); }
+.team-rail { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(8px, 1.25vw, 16px); }
 .team-rail::before { content: ''; position: absolute; left: 14px; right: 14px; top: 14px; height: 2px; background: var(--primary); opacity: .24; }
 .rail-role { position: relative; animation: cardRise .5s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--delay); }
 .rail-node { position: relative; z-index: 1; width: 29px; height: 29px; display: grid; place-items: center; margin: 0 auto 13px; border: 2px solid var(--primary); border-radius: 50%; color: var(--primary); background: #fff; font-size: 9px; font-weight: 850; }
-.rail-role-card { min-height: 118px; display: flex; flex-direction: column; padding: 17px; border: 1px solid var(--border); border-radius: 14px; background: #fafafa; }
-.rail-role-card .role-icon { width: 31px; height: 31px; margin-bottom: 13px; border-radius: 9px; }
+.rail-role-card { min-height: 104px; display: flex; flex-direction: column; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: #fafafa; }
+.rail-role-card .role-icon { width: 29px; height: 29px; margin-bottom: 10px; border-radius: 9px; }
 .rail-role-card .role-icon svg { width: 15px; }
 .rail-role-card b { font-size: clamp(13px, 1.1vw, 16px); }
 .rail-role-card small { margin-top: 4px; color: var(--muted-foreground); font-size: 10px; line-height: 1.3; }
 .rail-step { display: block; margin-top: 12px; color: var(--muted-foreground); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-align: center; text-transform: uppercase; }
+.org-chart-divider { display: flex; align-items: baseline; gap: 12px; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--border); }
+.org-chart-divider span { color: var(--primary); font-size: 10px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.org-chart-divider small { color: var(--muted-foreground); font-size: 10px; }
+.partner-role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1.25vw, 16px); margin-top: 12px; }
+.partner-role-card { display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: #fafafa; animation: cardRise .45s both; animation-delay: var(--delay); }
+.partner-role-card .role-icon { width: 27px; height: 27px; margin: 0; border-radius: 8px; }
+.partner-role-card .role-icon svg { width: 14px; }
+.partner-role-card b, .partner-role-card small { display: block; }
+.partner-role-card b { font-size: 12px; }
+.partner-role-card small { margin-top: 3px; color: var(--muted-foreground); font-size: 9px; line-height: 1.2; }
+.org-chart-note { display: flex; align-items: flex-start; gap: 9px; margin: 15px 0 0; color: var(--ink-soft); font-size: 10px; line-height: 1.35; }
+.org-chart-note svg { flex: 0 0 auto; width: 16px; color: var(--primary); }
 
 .map-comparison { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); align-items: center; gap: clamp(8px, 2vw, 28px); margin-top: clamp(22px, 3.5vh, 40px); }
 .map-comparison .bloom-panel { min-height: clamp(270px, 36vh, 380px); grid-template-columns: minmax(125px, .62fr) minmax(230px, 1.38fr); padding: 18px 22px; border-color: var(--border); border-radius: 18px; background: #fff; }
@@ -541,12 +553,15 @@ h1 em, h2 em { color: inherit; font-style: normal; }
   .presentation-header, .presentation-footer { background: rgba(255,255,255,.92); }
   .team-rail { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
   .team-rail::before { display: none; }
+  .partner-role-grid { grid-template-columns: repeat(2, 1fr); }
   .map-comparison { grid-template-columns: 1fr; }
   .map-comparison .shift-arrow { margin: -7px auto; transform: rotate(90deg); }
   .program-facts { grid-template-columns: repeat(3, 1fr); }.program-facts > div:nth-child(3) { border-right: 0; }.program-facts > div:nth-child(n+4) { border-top: 1px solid #e5e5e5; }
 }
 @media (max-width: 540px) {
   .team-rail-label { display: block; }.team-rail-label small { display: block; margin-top: 6px; }
+  .org-chart-divider { display: block; }.org-chart-divider small { display: block; margin-top: 6px; }
+  .partner-role-grid { grid-template-columns: 1fr; }
   .map-comparison .bloom-panel { grid-template-columns: 1fr; }.map-comparison .bloom-label { text-align: left; }.map-comparison .bloom-label strong { max-width: none; }
   .fragment-map, .shared-map { max-width: 300px; }
   .program-facts { grid-template-columns: repeat(2, 1fr); }.program-facts > div:nth-child(2) { border-right: 0; }.program-facts > div:nth-child(3) { border-right: 1px solid #e5e5e5; }.program-facts > div:nth-child(n+3) { border-top: 1px solid #e5e5e5; }
