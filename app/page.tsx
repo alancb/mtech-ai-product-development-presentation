@@ -158,32 +158,18 @@ function HandoffSlide() {
   );
 }
 
-const sharedTeamRoles = [
-  { label: 'Product', contribution: 'Direction', icon: Target, position: 'responsibility-product' },
-  { label: 'Design', contribution: 'Experience', icon: Palette, position: 'responsibility-design' },
-  { label: 'Develop', contribution: 'Engineering', icon: Code2, position: 'responsibility-develop' },
-  { label: 'Test', contribution: 'Confidence', icon: TestTube2, position: 'responsibility-test' },
-];
-
 function SharedResponsibilitiesSlide() {
   return (
     <article className="slide responsibilities-slide">
       <Eyebrow number="05">The AI-enabled team</Eyebrow>
       <h2 className="one-line-title">More shared responsibility. Same specialist depth.</h2>
       <p className="lead">Everyone shares more product context. Each role still brings expertise the others cannot replace.</p>
-      <div className="responsibility-orbit" aria-label="Design, Product, Develop, and Test overlap a large center of shared responsibilities without overlapping each other">
-        <div className="shared-responsibility-core">
-          <Users aria-hidden="true" />
-          <strong>Shared<br />responsibilities</strong>
-          <span>AI · systems · ethics · user needs</span>
-        </div>
-        {sharedTeamRoles.map(({ label, contribution, icon: Icon, position }, index) => (
-          <div className={`responsibility-role ${position}`} key={label} style={{ '--delay': `${index * 90}ms` } as React.CSSProperties}>
-            <Icon aria-hidden="true" />
-            <strong>{label}</strong>
-            <span>{contribution}</span>
-          </div>
-        ))}
+      <div className="responsibility-graphic-frame">
+        <img
+          className="responsibility-graphic"
+          src="/shared-responsibilities.svg"
+          alt="A large Shared responsibilities circle intersected by separate Product, Design, Develop, and Test circles."
+        />
       </div>
     </article>
   );

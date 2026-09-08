@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-labelledby="title description">
+  <title id="title">Shared responsibilities across an AI-enabled product team</title>
+  <desc id="description">A large central circle for shared responsibilities overlaps four separate specialist circles for Product, Design, Develop, and Test.</desc>
+  <defs>
+    <filter id="soft-shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.10" />
+    </filter>
+    <filter id="core-shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#6d0020" flood-opacity="0.11" />
+    </filter>
+    <style>
+      .display { font-family: Gotham, Montserrat, "Avenir Next", Arial, sans-serif; }
+      .role-name { fill: #000000; font-size: 28px; font-weight: 760; letter-spacing: -0.5px; }
+      .role-detail { fill: #5f5f5f; font-size: 15px; font-weight: 700; letter-spacing: 0.4px; }
+      .core-title { fill: #000000; font-size: 39px; font-weight: 760; letter-spacing: -1px; }
+      .core-detail { fill: #6d0020; font-size: 16px; font-weight: 720; letter-spacing: 0.25px; }
+      .icon { fill: none; stroke: #6d0020; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <ellipse cx="380" cy="320" rx="310" ry="270" fill="#6d0020" opacity="0.035" />
+
+  <circle cx="380" cy="310" r="178" fill="#d9ece8" stroke="#6d0020" stroke-width="5" filter="url(#core-shadow)" />
+  <circle cx="380" cy="310" r="164" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.58" />
+
+  <g filter="url(#soft-shadow)">
+    <circle cx="380" cy="115" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
+    <circle cx="575" cy="310" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
+    <circle cx="380" cy="505" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
+    <circle cx="185" cy="310" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
+  </g>
+
+  <g class="icon" transform="translate(380 73)">
+    <circle r="20" />
+    <circle r="11" />
+    <circle r="3" fill="#6d0020" stroke="none" />
+  </g>
+  <text class="display role-name" x="380" y="126" text-anchor="middle">Product</text>
+  <text class="display role-detail" x="380" y="151" text-anchor="middle">DIRECTION</text>
+
+  <g class="icon" transform="translate(575 267)">
+    <path d="M-17 14l4-15L8-22l14 14L1 13l-15 4z" />
+    <path d="M-13-1L1 13" />
+    <path d="M8-22l14 14" />
+  </g>
+  <text class="display role-name" x="575" y="321" text-anchor="middle">Design</text>
+  <text class="display role-detail" x="575" y="346" text-anchor="middle">EXPERIENCE</text>
+
+  <g class="icon" transform="translate(380 463)">
+    <path d="M-10-16l-18 16 18 16" />
+    <path d="M10-16L28 0 10 16" />
+    <path d="M5-25L-5 25" />
+  </g>
+  <text class="display role-name" x="380" y="516" text-anchor="middle">Develop</text>
+  <text class="display role-detail" x="380" y="541" text-anchor="middle">ENGINEERING</text>
+
+  <g class="icon" transform="translate(185 267)">
+    <circle r="22" />
+    <path d="M-11 0l8 8 16-18" />
+  </g>
+  <text class="display role-name" x="185" y="321" text-anchor="middle">Test</text>
+  <text class="display role-detail" x="185" y="346" text-anchor="middle">CONFIDENCE</text>
+
+  <g class="icon" transform="translate(380 224)">
+    <circle cx="-17" cy="-8" r="9" />
+    <circle cx="17" cy="-8" r="9" />
+    <circle cy="-14" r="11" />
+    <path d="M-38 18c2-15 10-22 23-22" />
+    <path d="M38 18c-2-15-10-22-23-22" />
+    <path d="M-22 22c1-18 9-27 22-27s21 9 22 27" />
+  </g>
+  <text class="display core-title" x="380" y="301" text-anchor="middle">Shared</text>
+  <text class="display core-title" x="380" y="343" text-anchor="middle">responsibilities</text>
+  <text class="display core-detail" x="380" y="378" text-anchor="middle">AI · systems · ethics · user needs</text>
+</svg>
