@@ -162,13 +162,13 @@ function SharedResponsibilitiesSlide() {
   return (
     <article className="slide responsibilities-slide">
       <Eyebrow number="05">The AI-enabled team</Eyebrow>
-      <h2 className="one-line-title">More shared responsibility. Same specialist depth.</h2>
-      <p className="lead">Everyone shares more product context. Each role still brings expertise the others cannot replace.</p>
+      <h2 className="one-line-title">The shared center is bigger.</h2>
+      <p className="lead">More of the work is shared. The specialties remain distinct.</p>
       <div className="responsibility-graphic-frame">
         <img
           className="responsibility-graphic"
           src="/shared-responsibilities.svg"
-          alt="A large Shared responsibilities circle intersected by separate Product, Design, Develop, and Test circles."
+          alt="A large Shared responsibilities circle intersected at four corners by separate Product, Design, Develop, and Test circles."
         />
       </div>
     </article>

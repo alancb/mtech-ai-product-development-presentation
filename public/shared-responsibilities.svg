@@ -1,75 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 40 700 540" role="img" aria-labelledby="title description">
   <title id="title">Shared responsibilities across an AI-enabled product team</title>
   <desc id="description">A large central circle for shared responsibilities overlaps four separate specialist circles for Product, Design, Develop, and Test.</desc>
   <defs>
     <filter id="soft-shadow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.10" />
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.09" />
     </filter>
     <filter id="core-shadow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#6d0020" flood-opacity="0.11" />
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#6d0020" flood-opacity="0.10" />
     </filter>
     <style>
       .display { font-family: Gotham, Montserrat, "Avenir Next", Arial, sans-serif; }
-      .role-name { fill: #000000; font-size: 28px; font-weight: 760; letter-spacing: -0.5px; }
-      .role-detail { fill: #5f5f5f; font-size: 15px; font-weight: 700; letter-spacing: 0.4px; }
-      .core-title { fill: #000000; font-size: 39px; font-weight: 760; letter-spacing: -1px; }
-      .core-detail { fill: #6d0020; font-size: 16px; font-weight: 720; letter-spacing: 0.25px; }
-      .icon { fill: none; stroke: #6d0020; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .role-name { fill: #000000; font-size: 26px; font-weight: 760; letter-spacing: -0.4px; }
+      .role-detail { fill: #5f5f5f; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; }
+      .core-title { fill: #000000; font-size: 36px; font-weight: 760; letter-spacing: -0.8px; }
+      .core-detail { fill: #6d0020; font-size: 14px; font-weight: 720; letter-spacing: 0.2px; }
+      .icon { fill: none; stroke: #6d0020; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
     </style>
   </defs>
 
-  <ellipse cx="380" cy="320" rx="310" ry="270" fill="#6d0020" opacity="0.035" />
-
-  <circle cx="380" cy="310" r="178" fill="#d9ece8" stroke="#6d0020" stroke-width="5" filter="url(#core-shadow)" />
-  <circle cx="380" cy="310" r="164" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.58" />
+  <circle cx="450" cy="310" r="190" fill="#d9ece8" stroke="#6d0020" stroke-width="4.5" filter="url(#core-shadow)" />
+  <circle cx="450" cy="310" r="176" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.62" />
 
   <g filter="url(#soft-shadow)">
-    <circle cx="380" cy="115" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
-    <circle cx="575" cy="310" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
-    <circle cx="380" cy="505" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
-    <circle cx="185" cy="310" r="98" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="4" />
+    <circle cx="250" cy="168" r="96" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="3.5" />
+    <circle cx="650" cy="168" r="96" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="3.5" />
+    <circle cx="250" cy="452" r="96" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="3.5" />
+    <circle cx="650" cy="452" r="96" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="3.5" />
   </g>
 
-  <g class="icon" transform="translate(380 73)">
-    <circle r="20" />
-    <circle r="11" />
+  <g class="icon" transform="translate(250 124)">
+    <circle r="18" />
+    <circle r="10" />
     <circle r="3" fill="#6d0020" stroke="none" />
   </g>
-  <text class="display role-name" x="380" y="126" text-anchor="middle">Product</text>
-  <text class="display role-detail" x="380" y="151" text-anchor="middle">DIRECTION</text>
+  <text class="display role-name" x="250" y="179" text-anchor="middle">Product</text>
+  <text class="display role-detail" x="250" y="202" text-anchor="middle">DIRECTION</text>
 
-  <g class="icon" transform="translate(575 267)">
-    <path d="M-17 14l4-15L8-22l14 14L1 13l-15 4z" />
-    <path d="M-13-1L1 13" />
-    <path d="M8-22l14 14" />
+  <g class="icon" transform="translate(650 124)">
+    <path d="M-15 12l4-13L7-19l12 12L1 11l-13 4z" />
+    <path d="M-11-1L1 11" />
+    <path d="M7-19l12 12" />
   </g>
-  <text class="display role-name" x="575" y="321" text-anchor="middle">Design</text>
-  <text class="display role-detail" x="575" y="346" text-anchor="middle">EXPERIENCE</text>
+  <text class="display role-name" x="650" y="179" text-anchor="middle">Design</text>
+  <text class="display role-detail" x="650" y="202" text-anchor="middle">EXPERIENCE</text>
 
-  <g class="icon" transform="translate(380 463)">
-    <path d="M-10-16l-18 16 18 16" />
-    <path d="M10-16L28 0 10 16" />
-    <path d="M5-25L-5 25" />
+  <g class="icon" transform="translate(250 408)">
+    <path d="M-9-14l-16 14 16 14" />
+    <path d="M9-14L25 0 9 14" />
+    <path d="M5-22L-5 22" />
   </g>
-  <text class="display role-name" x="380" y="516" text-anchor="middle">Develop</text>
-  <text class="display role-detail" x="380" y="541" text-anchor="middle">ENGINEERING</text>
+  <text class="display role-name" x="250" y="463" text-anchor="middle">Develop</text>
+  <text class="display role-detail" x="250" y="486" text-anchor="middle">ENGINEERING</text>
 
-  <g class="icon" transform="translate(185 267)">
-    <circle r="22" />
-    <path d="M-11 0l8 8 16-18" />
+  <g class="icon" transform="translate(650 408)">
+    <circle r="19" />
+    <path d="M-10 0l7 7 14-16" />
   </g>
-  <text class="display role-name" x="185" y="321" text-anchor="middle">Test</text>
-  <text class="display role-detail" x="185" y="346" text-anchor="middle">CONFIDENCE</text>
+  <text class="display role-name" x="650" y="463" text-anchor="middle">Test</text>
+  <text class="display role-detail" x="650" y="486" text-anchor="middle">CONFIDENCE</text>
 
-  <g class="icon" transform="translate(380 224)">
-    <circle cx="-17" cy="-8" r="9" />
-    <circle cx="17" cy="-8" r="9" />
-    <circle cy="-14" r="11" />
-    <path d="M-38 18c2-15 10-22 23-22" />
-    <path d="M38 18c-2-15-10-22-23-22" />
-    <path d="M-22 22c1-18 9-27 22-27s21 9 22 27" />
+  <g class="icon" transform="translate(450 235)">
+    <path d="M0-14L14 0 0 14-14 0z" />
+    <circle cx="0" cy="-14" r="5" fill="#d9ece8" />
+    <circle cx="14" cy="0" r="5" fill="#d9ece8" />
+    <circle cx="0" cy="14" r="5" fill="#d9ece8" />
+    <circle cx="-14" cy="0" r="5" fill="#d9ece8" />
   </g>
-  <text class="display core-title" x="380" y="301" text-anchor="middle">Shared</text>
-  <text class="display core-title" x="380" y="343" text-anchor="middle">responsibilities</text>
-  <text class="display core-detail" x="380" y="378" text-anchor="middle">AI · systems · ethics · user needs</text>
+  <text class="display core-title" x="450" y="305" text-anchor="middle">Shared</text>
+  <text class="display core-title" x="450" y="344" text-anchor="middle">responsibilities</text>
+  <text class="display core-detail" x="450" y="378" text-anchor="middle">AI · systems · ethics · user needs</text>
 </svg>
