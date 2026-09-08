@@ -6,14 +6,12 @@ import {
   Bot,
   Check,
   Code2,
-  Compass,
   Database,
   GraduationCap,
   Layers3,
   Megaphone,
   Network,
   Palette,
-  Pencil,
   Rocket,
   Search,
   ShieldCheck,
@@ -30,14 +28,13 @@ import { Button } from '@/components/ui/button';
 
 export const dynamic = 'force-static';
 
-const SLIDE_COUNT = 12;
+const SLIDE_COUNT = 11;
 
 const sections = [
   'Opening',
   'Perspective',
   'The shift',
   'Today',
-  'The shift',
   'The shift',
   'Proposal',
   'Core',
@@ -161,102 +158,32 @@ function HandoffSlide() {
   );
 }
 
-function DeskDiagram() {
-  const desks = [
-    { label: 'Product', artifact: 'roadmap', position: 'position-product' },
-    { label: 'Design', artifact: 'wireframe', position: 'position-design' },
-    { label: 'Develop', artifact: 'code', position: 'position-develop' },
-    { label: 'Test', artifact: 'checklist', position: 'position-test' },
-  ];
+const sharedTeamRoles = [
+  { label: 'Product', contribution: 'Direction', icon: Target, position: 'responsibility-product' },
+  { label: 'Design', contribution: 'Experience', icon: Palette, position: 'responsibility-design' },
+  { label: 'Develop', contribution: 'Engineering', icon: Code2, position: 'responsibility-develop' },
+  { label: 'Test', contribution: 'Confidence', icon: TestTube2, position: 'responsibility-test' },
+];
 
+function SharedResponsibilitiesSlide() {
   return (
-    <div className="desk-diagram" aria-label="Four separate desks connected to a small handoff tray">
-      <svg className="desk-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <marker id="handoff-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-            <path d="M 0 0 L 8 4 L 0 8 z" />
-          </marker>
-        </defs>
-        <line x1="25" y1="23" x2="47" y2="46" markerEnd="url(#handoff-arrow)" />
-        <line x1="53" y1="46" x2="75" y2="23" markerEnd="url(#handoff-arrow)" />
-        <line x1="25" y1="77" x2="47" y2="54" markerEnd="url(#handoff-arrow)" />
-        <line x1="53" y1="54" x2="75" y2="77" markerEnd="url(#handoff-arrow)" />
-      </svg>
-      {desks.map(({ label, artifact, position }) => (
-        <div className={`literal-desk ${position}`} key={label}>
-          <span className="desk-role-label">{label}</span>
-          <div className="desk-surface">
-            <div className={`partial-artifact ${artifact}-artifact`} aria-label={`${label} partial work product`}>
-              {artifact === 'roadmap' && <><i /><i /><i /></>}
-              {artifact === 'wireframe' && <><b /><i /><i /></>}
-              {artifact === 'code' && <><b /><i /><i /><i /></>}
-              {artifact === 'checklist' && <><i /><i /><i /></>}
-            </div>
-          </div>
-          <span className="desk-chair" aria-hidden="true" />
-        </div>
-      ))}
-      <div className="handoff-tray"><span>Handoffs</span><i aria-hidden="true" /></div>
-    </div>
-  );
-}
-
-function SharedWorkbenchDiagram() {
-  return (
-    <div className="shared-workbench-diagram" aria-label="Four specialists working on one shared product workbench">
-      <div className="literal-workbench">
-        <div className="shared-fluency-area">
-          <strong>Shared product fluency</strong>
+    <article className="slide responsibilities-slide">
+      <Eyebrow number="05">The AI-enabled team</Eyebrow>
+      <h2 className="one-line-title">More shared responsibility. Same specialist depth.</h2>
+      <p className="lead">Everyone shares more product context. Each role still brings expertise the others cannot replace.</p>
+      <div className="responsibility-orbit" aria-label="Design, Product, Develop, and Test overlap a large center of shared responsibilities without overlapping each other">
+        <div className="shared-responsibility-core">
+          <Users aria-hidden="true" />
+          <strong>Shared<br />responsibilities</strong>
           <span>AI · systems · ethics · user needs</span>
         </div>
-        <div className="shared-prototype" aria-label="Shared product prototype">
-          <div className="prototype-screen"><b /><i /><i /></div>
-          <div className="prototype-system"><i /><i /><i /><span /><span /></div>
-          <div className="prototype-flow"><i /><span /><i /><span /><i /></div>
-        </div>
-
-        <div className="specialist-station station-product">
-          <span className="station-label">Product</span>
-          <div className="roadmap-tool"><Compass aria-hidden="true" /><i /><i /><i /></div>
-        </div>
-        <div className="specialist-station station-design">
-          <span className="station-label">Design</span>
-          <div className="design-tool"><div><b /><i /><i /></div><Pencil aria-hidden="true" /></div>
-        </div>
-        <div className="specialist-station station-develop">
-          <span className="station-label">Develop</span>
-          <div className="code-tool"><Code2 aria-hidden="true" /><i /><i /><i /></div>
-        </div>
-        <div className="specialist-station station-test">
-          <span className="station-label">Test</span>
-          <div className="test-tool"><div><i /><i /><i /></div><Search aria-hidden="true" /></div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SeparateDesksSlide() {
-  return (
-    <article className="slide workbench-slide workbench-detail-slide">
-      <Eyebrow number="05">Before AI</Eyebrow>
-      <h2 className="one-line-title">Separate desks. Small handoff point.</h2>
-      <p className="lead">Four work surfaces, four partial views, and one narrow exchange point.</p>
-      <div className="workbench-single-panel workbench-then">
-        <DeskDiagram />
-      </div>
-    </article>
-  );
-}
-
-function SharedWorkbenchSlide() {
-  return (
-    <article className="slide workbench-slide workbench-detail-slide">
-      <Eyebrow number="06">The AI-enabled team</Eyebrow>
-      <h2 className="one-line-title">One product. Shared workbench.</h2>
-      <p className="lead">The team shapes one product together, sharing context while bringing different specialist tools.</p>
-      <div className="workbench-single-panel workbench-now">
-        <SharedWorkbenchDiagram />
+        {sharedTeamRoles.map(({ label, contribution, icon: Icon, position }, index) => (
+          <div className={`responsibility-role ${position}`} key={label} style={{ '--delay': `${index * 90}ms` } as React.CSSProperties}>
+            <Icon aria-hidden="true" />
+            <strong>{label}</strong>
+            <span>{contribution}</span>
+          </div>
+        ))}
       </div>
     </article>
   );
@@ -307,7 +234,7 @@ const trackSummaries = [
 function ProposedModelSlide() {
   return (
     <article className="slide proposal-slide">
-      <Eyebrow number="07">The proposed model</Eyebrow>
+      <Eyebrow number="06">The proposed model</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">One shared foundation. <em>Three clear specialties.</em></h2>
@@ -349,7 +276,7 @@ const coreCourses = [
 function CoreCoursesSlide() {
   return (
     <article className="slide core-slide">
-      <Eyebrow number="08">The shared core</Eyebrow>
+      <Eyebrow number="07">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">Five courses build <em>the new center.</em></h2>
@@ -404,7 +331,7 @@ const specialties = [
 function SpecialtiesSlide() {
   return (
     <article className="slide specialties-slide">
-      <Eyebrow number="09">The specialties</Eyebrow>
+      <Eyebrow number="08">The specialties</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">Same center. <em>Different edge.</em></h2>
@@ -434,7 +361,7 @@ function OutcomesSlide() {
   ];
   return (
     <article className="slide outcomes-slide">
-      <Eyebrow number="10">The graduate</Eyebrow>
+      <Eyebrow number="09">The graduate</Eyebrow>
       <h2 className="one-line-title">A specialist who sees the whole.</h2>
       <div className="graduate-layout">
         <div className="shared-capability">
@@ -461,7 +388,7 @@ function PilotSlide() {
   ];
   return (
     <article className="slide pilot-slide">
-      <Eyebrow number="11">The invitation</Eyebrow>
+      <Eyebrow number="10">The invitation</Eyebrow>
       <h2 className="one-line-title">Let us take the <em>first measured step.</em></h2>
       <p className="pilot-statement">This is not a request for every college to adopt the model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
       <div className="pilot-steps">
@@ -478,7 +405,7 @@ function PilotSlide() {
 function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
-      <Eyebrow number="12">One idea to take home</Eyebrow>
+      <Eyebrow number="11">One idea to take home</Eyebrow>
       <h2 className="one-line-title">Work changed. <em>Our program model should, too.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
@@ -508,8 +435,7 @@ const slides = [
   <AboutSlide key="about" />,
   <HandoffSlide key="handoff" />,
   <CurrentPortfolioSlide key="portfolio" />,
-  <SeparateDesksSlide key="separate-desks" />,
-  <SharedWorkbenchSlide key="shared-workbench" />,
+  <SharedResponsibilitiesSlide key="shared-responsibilities" />,
   <ProposedModelSlide key="proposal" />,
   <CoreCoursesSlide key="core" />,
   <SpecialtiesSlide key="specialties" />,
