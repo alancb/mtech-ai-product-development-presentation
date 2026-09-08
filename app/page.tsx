@@ -202,10 +202,6 @@ function CurrentPortfolioSlide() {
             <strong>{name}</strong>
           </div>
         ))}
-        <div className="catalog-card catalog-summary">
-          <Network aria-hidden="true" />
-          <strong>We teach the parts, not yet the shared path.</strong>
-        </div>
       </div>
     </article>
   );
