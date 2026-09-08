@@ -57,6 +57,8 @@ jobs:
             content = content.replaceAll(`${prefix}/_next/`, `${prefix}/assets/`);
             for (const asset of ['mtech-logo.svg', 'mtech-mark.png', 'og.png', 'favicon.svg', 'shared-responsibilities.svg']) {
               content = content.replaceAll(`"/${asset}"`, `"${prefix}/${asset}"`);
+              content = content.replaceAll(`'/${asset}'`, `'${prefix}/${asset}'`);
+              content = content.replaceAll(`\`/${asset}\``, `\`${prefix}/${asset}\``);
             }
             fs.writeFileSync(filePath, content);
           }
