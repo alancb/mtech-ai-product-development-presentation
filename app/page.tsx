@@ -162,7 +162,7 @@ function SharedResponsibilitiesSlide() {
   return (
     <article className="slide responsibilities-slide">
       <Eyebrow number="05">The AI-enabled team</Eyebrow>
-      <h2 className="one-line-title">The shared center is bigger.</h2>
+      <h2 className="one-line-title">Product Teams with AI</h2>
       <p className="lead">More of the work is shared. The specialties remain distinct.</p>
       <div className="responsibility-graphic-frame">
         <img
