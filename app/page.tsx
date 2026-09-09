@@ -4,7 +4,9 @@ import {
   ArrowLeft,
   ArrowRight,
   Bot,
+  CalendarDays,
   Check,
+  Clock3,
   Code2,
   Database,
   GraduationCap,
@@ -13,14 +15,12 @@ import {
   Network,
   Palette,
   Rocket,
-  Search,
   ShieldCheck,
   Smartphone,
   Sparkles,
   Target,
   TestTube2,
   Users,
-  Workflow,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -39,8 +39,8 @@ const sections = [
   'Proposal',
   'Core',
   'Specialties',
-  'Outcomes',
-  'Pilot',
+  'Student project',
+  'The request',
   'Takeaway',
 ];
 
@@ -60,7 +60,7 @@ function TitleSlide() {
       <Eyebrow number="01">A vision for what comes next</Eyebrow>
       <h1>Preparing students for the <em>future of product development</em></h1>
       <p className="title-deck">
-        A shared foundation for AI-powered product teams, and a new model for technical education.
+        A shared AI foundation for product teams and the future of technical education in Utah.
       </p>
       <div className="presenter-line">
         <span><strong>Alan Barth</strong><small>Senior Program Director · MTECH</small></span>
@@ -126,7 +126,7 @@ function HandoffSlide() {
       <div className="heading-row">
         <div>
           <h2 className="one-line-title">Product teams <em>before AI</em></h2>
-          <p className="lead">Work moved through a mostly linear handoff. Partner teams supported the product from outside the core.</p>
+          <p className="lead">A simplified view: work moves between specialties, supported by partner teams.</p>
         </div>
       </div>
       <div className="team-before-graphic">
@@ -152,7 +152,7 @@ function HandoffSlide() {
             </div>
           ))}
         </div>
-        <p className="org-chart-note"><GraduationCap aria-hidden="true" /><span><b>What we teach:</b> every core product role, plus how to work with the partner teams around it.</span></p>
+        <p className="org-chart-note"><GraduationCap aria-hidden="true" /><span><b>Teaching the team:</b> skills for product roles and the partner teams around them.</span></p>
       </div>
     </article>
   );
@@ -188,11 +188,11 @@ const currentPrograms = [
 function CurrentPortfolioSlide() {
   return (
     <article className="slide portfolio-slide">
-      <Eyebrow number="04">Our portfolio today</Eyebrow>
+      <Eyebrow number="04">Technology education today</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">Our programs reflect <em>a pre-AI team model.</em></h2>
-          <p className="lead">Strong vertical lanes. Students learn one part of the work, not the full path from product decision to launch.</p>
+          <h2 className="one-line-title">Strong specialties. <em>Shared AI skills.</em></h2>
+          <p className="lead">Technical education builds expertise in distinct fields. A shared AI foundation can connect those strengths.</p>
         </div>
       </div>
       <div className="catalog-grid">
@@ -219,8 +219,8 @@ function ProposedModelSlide() {
       <Eyebrow number="06">The proposed model</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">One shared foundation. <em>Three clear specialties.</em></h2>
-          <p className="lead">Students first learn to think, plan, build, and verify AI-enabled products together, then develop a distinctive craft.</p>
+          <h2 className="one-line-title">One AI foundation. <em>Three specialties.</em></h2>
+          <p className="lead">Learn to plan, build, and verify products with AI. Then go deeper in one specialty.</p>
         </div>
       </div>
       <div className="program-architecture">
@@ -228,7 +228,7 @@ function ProposedModelSlide() {
           <span className="platform-kicker">Every student starts here · 360 hours</span>
           <strong>Shared Foundation Core</strong>
           <div className="platform-capabilities">
-            <span>Product thinking</span><span>Systems</span><span>AI development</span><span>Agents</span><span>Ethics</span>
+            <span>Product thinking</span><span>Systems</span><span>AI development</span><span>AI agents</span><span>Ethics</span>
           </div>
         </div>
         <div className="track-connector"><span /><span /><span /></div>
@@ -242,7 +242,7 @@ function ProposedModelSlide() {
           ))}
         </div>
       </div>
-      <p className="architecture-equation"><strong>360 hours together</strong><span>+</span><strong>360 hours specialized</strong><span>=</span><strong>one complete graduate</strong></p>
+      <p className="architecture-equation"><strong>360 hours of core</strong><span>+</span><strong>360 in a specialty</strong><span>=</span><strong>720 hours · 24 credits</strong></p>
     </article>
   );
 }
@@ -261,8 +261,8 @@ function CoreCoursesSlide() {
       <Eyebrow number="07">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">Five courses build <em>the shared AI foundation.</em></h2>
-          <p className="lead">The largest investment is the shared AI fluency every modern product teammate needs.</p>
+          <h2 className="one-line-title">Five courses. <em>One AI foundation.</em></h2>
+          <p className="lead">Students learn to plan, build, and verify products with AI.</p>
         </div>
         <div className="core-total"><strong>360</strong><span>hours<br />12 credits</span></div>
       </div>
@@ -280,7 +280,7 @@ function CoreCoursesSlide() {
       </div>
       <div className="responsibility-banner">
         <ShieldCheck aria-hidden="true" />
-        <div><strong>Responsible AI is practiced, not isolated.</strong><span>Privacy, verification, guardrails, and accountability live inside every course.</span></div>
+        <div><strong>Responsible AI in every course.</strong><span>Protect privacy. Check AI output. Explain decisions.</span></div>
       </div>
     </article>
   );
@@ -316,8 +316,8 @@ function SpecialtiesSlide() {
       <Eyebrow number="08">The specialties</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">Same center. <em>Different edge.</em></h2>
-          <p className="lead">Each 360-hour track turns shared AI product fluency into a distinct, employable craft.</p>
+          <h2 className="one-line-title">Shared AI skills. <em>Specialist depth.</em></h2>
+          <p className="lead">Students choose one 360-hour specialty: Design, Web, or iOS.</p>
         </div>
       </div>
       <div className="specialty-grid">
@@ -334,52 +334,73 @@ function SpecialtiesSlide() {
   );
 }
 
-function OutcomesSlide() {
-  const shared = ['Frame a user problem', 'Plan the system', 'Build with AI', 'Test what AI produces', 'Design responsible automation'];
-  const distinct = [
-    { icon: Palette, label: 'Design', value: 'Human judgment + experience craft' },
-    { icon: Code2, label: 'Web', value: 'Full-stack engineering craft' },
-    { icon: Smartphone, label: 'iOS', value: 'Native mobile engineering craft' },
+function StudentProjectSlide() {
+  const stages = [
+    { title: 'Understand', text: 'Help students book campus support.', icon: Target },
+    { title: 'Plan', text: 'Map people, times, and bookings.', icon: Layers3 },
+    { title: 'Build with AI', text: 'Create a working booking site.', icon: Code2 },
+    { title: 'Verify', text: 'Catch double bookings. Protect privacy.', icon: ShieldCheck },
+    { title: 'Automate', text: 'Add reminders with human oversight.', icon: Bot },
+  ];
+  const contributions = [
+    { icon: Palette, label: 'Design', text: 'Test and refine the booking experience.' },
+    { icon: Code2, label: 'Web', text: 'Develop a reliable booking website.' },
+    { icon: Smartphone, label: 'iOS', text: 'Create a native app for appointments.' },
   ];
   return (
-    <article className="slide outcomes-slide">
-      <Eyebrow number="09">The graduate</Eyebrow>
-      <h2 className="one-line-title">An AI-ready specialist who sees the whole.</h2>
-      <div className="graduate-layout">
-        <div className="shared-capability">
-          <span className="capability-label"><Users aria-hidden="true" /> Every graduate can</span>
-          <div className="capability-list">{shared.map((item) => <span key={item}><Check aria-hidden="true" />{item}</span>)}</div>
-        </div>
-        <div className="plus-mark">+</div>
-        <div className="distinct-capability">
-          <span className="capability-label"><Sparkles aria-hidden="true" /> One distinctive edge</span>
-          {distinct.map(({ icon: Icon, label, value }) => (
-            <div className="distinct-row" key={label}><Icon aria-hidden="true" /><b>{label}</b><span>{value}</span></div>
-          ))}
-        </div>
+    <article className="slide student-project-slide">
+      <Eyebrow number="09">An example student project</Eyebrow>
+      <h2 className="one-line-title">One project. <em>Shared skills.</em></h2>
+      <p className="lead">A campus appointment-booking tool, built with AI.</p>
+      <div className="project-example">
+        <section aria-labelledby="project-core-heading">
+          <h3 className="project-section-label" id="project-core-heading">Shared core: develop the whole product</h3>
+          <ol className="project-stages">
+            {stages.map(({ title, text, icon: Icon }) => (
+              <li key={title}>
+                <Icon aria-hidden="true" />
+                <strong>{title}</strong>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+        <section aria-labelledby="project-specialty-heading">
+          <h3 className="project-section-label" id="project-specialty-heading">Then choose one specialty to go deeper</h3>
+          <div className="project-specialties">
+            {contributions.map(({ icon: Icon, label, text }) => (
+              <div className="project-contribution" key={label}>
+                <Icon aria-hidden="true" />
+                <div><strong>{label}</strong><p>{text}</p></div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <p className="project-proof">Every student explains decisions, checks AI output, and improves the product.</p>
       </div>
     </article>
   );
 }
 
 function PilotSlide() {
-  const steps = [
-    { number: '01', label: 'Build', text: 'Launch the AI Product Development pilot at MTECH.', icon: Rocket },
-    { number: '02', label: 'Measure', text: 'Track learning, completion, and employer response.', icon: Search },
-    { number: '03', label: 'Share', text: 'Report honestly on what worked, and what did not.', icon: Workflow },
+  const facts = [
+    { label: 'First cohort', value: 'August 2027', detail: 'Proposed start', icon: CalendarDays },
+    { label: 'Time to complete', value: '9 months', detail: 'From start to finish', icon: Clock3 },
+    { label: 'Program length', value: '720 hours', detail: 'Shared core + one specialty', icon: GraduationCap },
   ];
   return (
     <article className="slide pilot-slide">
-      <Eyebrow number="10">The invitation</Eyebrow>
-      <h2 className="one-line-title">Let us take the <em>first measured step.</em></h2>
-      <p className="pilot-statement">This is not a request for every college to adopt an AI program model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
-      <div className="pilot-steps">
-        {steps.map(({ number, label, text, icon: Icon }, index) => (
-          <div className="pilot-step" key={number} style={{ '--delay': `${index * 110}ms` } as React.CSSProperties}>
-            <span className="pilot-number">{number}</span><Icon aria-hidden="true" /><b>{label}</b><p>{text}</p>
+      <Eyebrow number="10">The request</Eyebrow>
+      <h2 className="one-line-title">A next step for <em>AI education in Utah.</em></h2>
+      <p className="pilot-statement">Support moving forward with the AI Product Development program.</p>
+      <div className="cohort-facts">
+        {facts.map(({ label, value, detail, icon: Icon }) => (
+          <div className="cohort-fact" key={label}>
+            <Icon aria-hidden="true" /><span>{label}</span><strong>{value}</strong><p>{detail}</p>
           </div>
         ))}
       </div>
+      <p className="pilot-sharing">MTECH would host the first cohort and share results with technical colleges across Utah.</p>
     </article>
   );
 }
@@ -388,7 +409,7 @@ function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
       <Eyebrow number="11">One idea to take home</Eyebrow>
-      <h2 className="one-line-title">AI changed the work. <em>Our program model should, too.</em></h2>
+      <h2 className="one-line-title">AI changed the work. <em>Education can adapt.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
           <span><Sparkles aria-hidden="true" /> The shift</span>
@@ -397,7 +418,7 @@ function TakeawaySlide() {
         </div>
         <ArrowRight aria-hidden="true" />
         <div className="takeaway-card takeaway-primary">
-          <span><Layers3 aria-hidden="true" /> Our response</span>
+          <span><Layers3 aria-hidden="true" /> The opportunity</span>
           <strong>Build a broad shared AI core.</strong>
           <small>Then go deep in Design, Web, or iOS.</small>
         </div>
@@ -421,7 +442,7 @@ const slides = [
   <ProposedModelSlide key="proposal" />,
   <CoreCoursesSlide key="core" />,
   <SpecialtiesSlide key="specialties" />,
-  <OutcomesSlide key="outcomes" />,
+  <StudentProjectSlide key="student-project" />,
   <PilotSlide key="pilot" />,
   <TakeawaySlide key="takeaway" />,
 ];
@@ -429,6 +450,8 @@ const slides = [
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const touchStart = useRef<number | null>(null);
+  const stageRef = useRef<HTMLElement | null>(null);
+  const shellRef = useRef<HTMLElement | null>(null);
 
   const goTo = useCallback((next: number) => {
     setActiveSlide(Math.min(SLIDE_COUNT - 1, Math.max(0, next)));
@@ -445,6 +468,8 @@ export default function Home() {
 
   useEffect(() => {
     window.history.replaceState(null, '', `#slide-${activeSlide + 1}`);
+    stageRef.current?.scrollTo(0, 0);
+    shellRef.current?.scrollTo(0, 0);
   }, [activeSlide]);
 
   useEffect(() => {
@@ -467,6 +492,7 @@ export default function Home() {
 
   return (
     <main
+      ref={shellRef}
       className="presentation-shell"
       onTouchStart={(event) => { touchStart.current = event.changedTouches[0]?.screenX ?? null; }}
       onTouchEnd={(event) => {
@@ -485,7 +511,7 @@ export default function Home() {
         <div className="slide-counter">{String(activeSlide + 1).padStart(2, '0')} / {String(SLIDE_COUNT).padStart(2, '0')}</div>
       </header>
 
-      <section className="slide-stage" aria-live="polite" aria-label={`Slide ${activeSlide + 1} of ${SLIDE_COUNT}`}>
+      <section ref={stageRef} className="slide-stage" aria-live="polite" aria-label={`Slide ${activeSlide + 1} of ${SLIDE_COUNT}`}>
         <div className="slide-transition" key={activeSlide}>{slides[activeSlide]}</div>
       </section>
 
