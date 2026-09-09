@@ -58,7 +58,7 @@ function TitleSlide() {
   return (
     <article className="slide title-slide">
       <Eyebrow number="01">A vision for what comes next</Eyebrow>
-      <h1>Preparing students for the <em>future of product development</em></h1>
+      <h1>Preparing students for the future of <em>AI Product Development</em></h1>
       <p className="title-deck">
         A shared AI foundation for product teams and the future of technical education in Utah.
       </p>
@@ -168,7 +168,7 @@ function SharedResponsibilitiesSlide() {
         <img
           className="responsibility-graphic"
           src="/shared-responsibilities.svg"
-          alt="A large Shared responsibilities circle intersected at four corners by separate Product, Design, Develop, and Test circles."
+          alt="Product, Design, Develop, and Test each overlap shared responsibilities in Product thinking, Systems, AI development, AI agents, and Ethics."
         />
       </div>
     </article>
@@ -192,7 +192,7 @@ function CurrentPortfolioSlide() {
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">Aligned Programs</h2>
-          <p className="lead">Technical education builds expertise in distinct fields. A shared AI foundation can connect those strengths.</p>
+          <p className="lead">These programs are taught today and align with how technology companies organize their work.</p>
         </div>
       </div>
       <div className="catalog-grid">

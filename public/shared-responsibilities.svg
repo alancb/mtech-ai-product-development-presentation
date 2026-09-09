@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="130 0 940 500" role="img" aria-labelledby="title description">
   <title id="title">Shared responsibilities across an AI-enabled product team</title>
-  <desc id="description">A large central circle for shared responsibilities overlaps four separate specialist circles for Product, Design, Develop, and Test.</desc>
+  <desc id="description">Product, Design, Develop, and Test each overlap shared responsibilities in Product thinking, Systems, AI development, AI agents, and Ethics.</desc>
   <defs>
     <filter id="soft-shadow" x="-25%" y="-25%" width="150%" height="150%">
       <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.09" />
@@ -13,6 +13,7 @@
       .role-name { fill: #000000; font-size: 30px; font-weight: 700; letter-spacing: -0.4px; }
       .core-title { fill: #000000; font-size: 36px; font-weight: 760; letter-spacing: -0.8px; }
       .core-detail { fill: #000000; font-size: 20px; font-weight: 600; letter-spacing: 0; }
+      .core-tag { fill: #fffdf8; stroke: #b6cbc7; stroke-width: 1; }
       .icon { fill: none; stroke: #6d0020; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
     </style>
   </defs>
@@ -54,14 +55,28 @@
   </g>
   <text class="display role-name" x="900" y="397" text-anchor="middle">Test</text>
 
-  <g class="icon" transform="translate(600 166)">
+  <g class="icon" transform="translate(600 126)">
     <path d="M0-14L14 0 0 14-14 0z" />
     <circle cx="0" cy="-14" r="5" fill="#d9ece8" />
     <circle cx="14" cy="0" r="5" fill="#d9ece8" />
     <circle cx="0" cy="14" r="5" fill="#d9ece8" />
     <circle cx="-14" cy="0" r="5" fill="#d9ece8" />
   </g>
-  <text class="display core-title" x="600" y="239" text-anchor="middle">Shared</text>
-  <text class="display core-title" x="600" y="278" text-anchor="middle">responsibilities</text>
-  <text class="display core-detail" x="600" y="314" text-anchor="middle">AI · systems · ethics · user needs</text>
+  <text class="display core-title" x="600" y="199" text-anchor="middle">Shared</text>
+  <text class="display core-title" x="600" y="238" text-anchor="middle">responsibilities</text>
+
+  <g text-anchor="middle">
+    <rect class="core-tag" x="434" y="264" width="190" height="36" rx="18" />
+    <text class="display core-detail" x="529" y="288">Product thinking</text>
+    <rect class="core-tag" x="634" y="264" width="132" height="36" rx="18" />
+    <text class="display core-detail" x="700" y="288">Systems</text>
+
+    <rect class="core-tag" x="439" y="308" width="194" height="36" rx="18" />
+    <text class="display core-detail" x="536" y="332">AI development</text>
+    <rect class="core-tag" x="643" y="308" width="118" height="36" rx="18" />
+    <text class="display core-detail" x="702" y="332">AI agents</text>
+
+    <rect class="core-tag" x="555" y="352" width="90" height="36" rx="18" />
+    <text class="display core-detail" x="600" y="376">Ethics</text>
+  </g>
 </svg>
