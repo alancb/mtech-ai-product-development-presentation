@@ -163,7 +163,7 @@ function SharedResponsibilitiesSlide() {
     <article className="slide responsibilities-slide">
       <Eyebrow number="05">The AI-enabled team</Eyebrow>
       <h2 className="one-line-title">Product Teams with AI</h2>
-      <p className="lead">More of the work is shared. The specialties remain distinct.</p>
+      <p className="lead">With AI, more of the work is shared. The specialties remain distinct.</p>
       <div className="responsibility-graphic-frame">
         <img
           className="responsibility-graphic"
@@ -191,7 +191,7 @@ function CurrentPortfolioSlide() {
       <Eyebrow number="04">Our portfolio today</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">Our programs reflect <em>the old team model.</em></h2>
+          <h2 className="one-line-title">Our programs reflect <em>a pre-AI team model.</em></h2>
           <p className="lead">Strong vertical lanes. Students learn one part of the work, not the full path from product decision to launch.</p>
         </div>
       </div>
@@ -220,7 +220,7 @@ function ProposedModelSlide() {
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">One shared foundation. <em>Three clear specialties.</em></h2>
-          <p className="lead">Students first learn to think, plan, build, and verify together, then develop a distinctive craft.</p>
+          <p className="lead">Students first learn to think, plan, build, and verify AI-enabled products together, then develop a distinctive craft.</p>
         </div>
       </div>
       <div className="program-architecture">
@@ -261,8 +261,8 @@ function CoreCoursesSlide() {
       <Eyebrow number="07">The shared core</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">Five courses build <em>the new center.</em></h2>
-          <p className="lead">The largest investment is the common capability every modern product teammate needs.</p>
+          <h2 className="one-line-title">Five courses build <em>the shared AI foundation.</em></h2>
+          <p className="lead">The largest investment is the shared AI fluency every modern product teammate needs.</p>
         </div>
         <div className="core-total"><strong>360</strong><span>hours<br />12 credits</span></div>
       </div>
@@ -280,7 +280,7 @@ function CoreCoursesSlide() {
       </div>
       <div className="responsibility-banner">
         <ShieldCheck aria-hidden="true" />
-        <div><strong>Ethics is practiced, not isolated.</strong><span>Privacy, verification, guardrails, and accountability live inside every course.</span></div>
+        <div><strong>Responsible AI is practiced, not isolated.</strong><span>Privacy, verification, guardrails, and accountability live inside every course.</span></div>
       </div>
     </article>
   );
@@ -317,7 +317,7 @@ function SpecialtiesSlide() {
       <div className="heading-row compact-heading">
         <div>
           <h2 className="one-line-title">Same center. <em>Different edge.</em></h2>
-          <p className="lead">Each 360-hour track turns shared fluency into a distinct, employable craft.</p>
+          <p className="lead">Each 360-hour track turns shared AI product fluency into a distinct, employable craft.</p>
         </div>
       </div>
       <div className="specialty-grid">
@@ -344,7 +344,7 @@ function OutcomesSlide() {
   return (
     <article className="slide outcomes-slide">
       <Eyebrow number="09">The graduate</Eyebrow>
-      <h2 className="one-line-title">A specialist who sees the whole.</h2>
+      <h2 className="one-line-title">An AI-ready specialist who sees the whole.</h2>
       <div className="graduate-layout">
         <div className="shared-capability">
           <span className="capability-label"><Users aria-hidden="true" /> Every graduate can</span>
@@ -364,7 +364,7 @@ function OutcomesSlide() {
 
 function PilotSlide() {
   const steps = [
-    { number: '01', label: 'Build', text: 'Launch the pilot at MTECH.', icon: Rocket },
+    { number: '01', label: 'Build', text: 'Launch the AI Product Development pilot at MTECH.', icon: Rocket },
     { number: '02', label: 'Measure', text: 'Track learning, completion, and employer response.', icon: Search },
     { number: '03', label: 'Share', text: 'Report honestly on what worked, and what did not.', icon: Workflow },
   ];
@@ -372,7 +372,7 @@ function PilotSlide() {
     <article className="slide pilot-slide">
       <Eyebrow number="10">The invitation</Eyebrow>
       <h2 className="one-line-title">Let us take the <em>first measured step.</em></h2>
-      <p className="pilot-statement">This is not a request for every college to adopt the model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
+      <p className="pilot-statement">This is not a request for every college to adopt an AI program model today. It is an offer for MTECH to test it, learn from it, and share the evidence.</p>
       <div className="pilot-steps">
         {steps.map(({ number, label, text, icon: Icon }, index) => (
           <div className="pilot-step" key={number} style={{ '--delay': `${index * 110}ms` } as React.CSSProperties}>
@@ -388,7 +388,7 @@ function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
       <Eyebrow number="11">One idea to take home</Eyebrow>
-      <h2 className="one-line-title">Work changed. <em>Our program model should, too.</em></h2>
+      <h2 className="one-line-title">AI changed the work. <em>Our program model should, too.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
           <span><Sparkles aria-hidden="true" /> The shift</span>
@@ -398,14 +398,14 @@ function TakeawaySlide() {
         <ArrowRight aria-hidden="true" />
         <div className="takeaway-card takeaway-primary">
           <span><Layers3 aria-hidden="true" /> Our response</span>
-          <strong>Build a broad shared core.</strong>
+          <strong>Build a broad shared AI core.</strong>
           <small>Then go deep in Design, Web, or iOS.</small>
         </div>
         <ArrowRight aria-hidden="true" />
         <div className="takeaway-card">
           <span><GraduationCap aria-hidden="true" /> The result</span>
           <strong>Specialists who can build across boundaries.</strong>
-          <small>Ready for the way product teams work now.</small>
+          <small>Ready for AI-enabled product teams.</small>
         </div>
       </div>
     </article>
