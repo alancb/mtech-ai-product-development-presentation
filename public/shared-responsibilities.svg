@@ -11,7 +11,6 @@
     <style>
       .display { font-family: Gotham, Montserrat, "Avenir Next", Arial, sans-serif; }
       .role-name { fill: #000000; font-size: 30px; font-weight: 700; letter-spacing: -0.4px; }
-      .role-detail { fill: #4a4a4a; font-size: 19px; font-weight: 600; letter-spacing: 0.3px; }
       .core-title { fill: #000000; font-size: 36px; font-weight: 760; letter-spacing: -0.8px; }
       .core-detail { fill: #000000; font-size: 20px; font-weight: 600; letter-spacing: 0; }
       .icon { fill: none; stroke: #6d0020; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -28,36 +27,32 @@
     <circle cx="900" cy="365" r="110" fill="#fffdf8" fill-opacity="0.97" stroke="#6d0020" stroke-width="3.5" />
   </g>
 
-  <g class="icon" transform="translate(300 87)">
+  <g class="icon" transform="translate(300 108)">
     <circle r="18" />
     <circle r="10" />
     <circle r="3" fill="#6d0020" stroke="none" />
   </g>
-  <text class="display role-name" x="300" y="146" text-anchor="middle">Product</text>
-  <text class="display role-detail" x="300" y="171" text-anchor="middle">DIRECTION</text>
+  <text class="display role-name" x="300" y="167" text-anchor="middle">Product</text>
 
-  <g class="icon" transform="translate(900 87)">
+  <g class="icon" transform="translate(900 108)">
     <path d="M-15 12l4-13L7-19l12 12L1 11l-13 4z" />
     <path d="M-11-1L1 11" />
     <path d="M7-19l12 12" />
   </g>
-  <text class="display role-name" x="900" y="146" text-anchor="middle">Design</text>
-  <text class="display role-detail" x="900" y="171" text-anchor="middle">EXPERIENCE</text>
+  <text class="display role-name" x="900" y="167" text-anchor="middle">Design</text>
 
-  <g class="icon" transform="translate(300 317)">
+  <g class="icon" transform="translate(300 338)">
     <path d="M-9-14l-16 14 16 14" />
     <path d="M9-14L25 0 9 14" />
     <path d="M5-22L-5 22" />
   </g>
-  <text class="display role-name" x="300" y="376" text-anchor="middle">Develop</text>
-  <text class="display role-detail" x="300" y="401" text-anchor="middle">ENGINEERING</text>
+  <text class="display role-name" x="300" y="397" text-anchor="middle">Develop</text>
 
-  <g class="icon" transform="translate(900 317)">
+  <g class="icon" transform="translate(900 338)">
     <circle r="19" />
     <path d="M-10 0l7 7 14-16" />
   </g>
-  <text class="display role-name" x="900" y="376" text-anchor="middle">Test</text>
-  <text class="display role-detail" x="900" y="401" text-anchor="middle">CONFIDENCE</text>
+  <text class="display role-name" x="900" y="397" text-anchor="middle">Test</text>
 
   <g class="icon" transform="translate(600 166)">
     <path d="M0-14L14 0 0 14-14 0z" />

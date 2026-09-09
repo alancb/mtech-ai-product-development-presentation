@@ -40,8 +40,8 @@ const sections = [
   'Core',
   'Specialties',
   'Student project',
-  'The request',
   'Takeaway',
+  'The request',
 ];
 
 function Eyebrow({ number, children }: { number: string; children: React.ReactNode }) {
@@ -191,7 +191,7 @@ function CurrentPortfolioSlide() {
       <Eyebrow number="04">Technology education today</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">Strong specialties. <em>Shared AI skills.</em></h2>
+          <h2 className="one-line-title">Aligned Programs</h2>
           <p className="lead">Technical education builds expertise in distinct fields. A shared AI foundation can connect those strengths.</p>
         </div>
       </div>
@@ -336,25 +336,25 @@ function SpecialtiesSlide() {
 
 function StudentProjectSlide() {
   const stages = [
-    { title: 'Understand', text: 'Help students book campus support.', icon: Target },
-    { title: 'Plan', text: 'Map people, times, and bookings.', icon: Layers3 },
-    { title: 'Build with AI', text: 'Create a working booking site.', icon: Code2 },
-    { title: 'Verify', text: 'Catch double bookings. Protect privacy.', icon: ShieldCheck },
-    { title: 'Automate', text: 'Add reminders with human oversight.', icon: Bot },
+    { title: 'Understand', text: 'Help catering staff find recipes quickly.', icon: Target },
+    { title: 'Plan', text: 'Define recipe fields, categories, and search.', icon: Layers3 },
+    { title: 'Build with AI', text: 'Create a searchable recipe directory.', icon: Code2 },
+    { title: 'Verify', text: 'Test search and check recipe details.', icon: ShieldCheck },
+    { title: 'Automate', text: 'Suggest recipe tags for staff to review.', icon: Bot },
   ];
   const contributions = [
-    { icon: Palette, label: 'Design', text: 'Test and refine the booking experience.' },
-    { icon: Code2, label: 'Web', text: 'Develop a reliable booking website.' },
-    { icon: Smartphone, label: 'iOS', text: 'Create a native app for appointments.' },
+    { icon: Palette, label: 'Design', text: 'Make recipes easy to find and follow.' },
+    { icon: Code2, label: 'Web', text: 'Build a browser-based recipe directory.' },
+    { icon: Smartphone, label: 'iOS', text: 'Create a native app for kitchen use.' },
   ];
   return (
     <article className="slide student-project-slide">
-      <Eyebrow number="09">An example student project</Eyebrow>
-      <h2 className="one-line-title">One project. <em>Shared skills.</em></h2>
-      <p className="lead">A campus appointment-booking tool, built with AI.</p>
+      <Eyebrow number="09">From a real project to student learning</Eyebrow>
+      <h2 className="one-line-title">A recipe directory. <em>Shared AI skills.</em></h2>
+      <p className="lead">I built a recipe directory app for the catering department.</p>
       <div className="project-example">
         <section aria-labelledby="project-core-heading">
-          <h3 className="project-section-label" id="project-core-heading">Shared core: develop the whole product</h3>
+          <h3 className="project-section-label" id="project-core-heading">How students could build it through the AI core</h3>
           <ol className="project-stages">
             {stages.map(({ title, text, icon: Icon }) => (
               <li key={title}>
@@ -390,7 +390,7 @@ function PilotSlide() {
   ];
   return (
     <article className="slide pilot-slide">
-      <Eyebrow number="10">The request</Eyebrow>
+      <Eyebrow number="11">The request</Eyebrow>
       <h2 className="one-line-title">A next step for <em>AI education in Utah.</em></h2>
       <p className="pilot-statement">Support moving forward with the AI Product Development program.</p>
       <div className="cohort-facts">
@@ -408,7 +408,7 @@ function PilotSlide() {
 function TakeawaySlide() {
   return (
     <article className="slide takeaway-slide">
-      <Eyebrow number="11">One idea to take home</Eyebrow>
+      <Eyebrow number="10">One idea to take home</Eyebrow>
       <h2 className="one-line-title">AI changed the work. <em>Education can adapt.</em></h2>
       <div className="takeaway-flow">
         <div className="takeaway-card">
@@ -443,8 +443,8 @@ const slides = [
   <CoreCoursesSlide key="core" />,
   <SpecialtiesSlide key="specialties" />,
   <StudentProjectSlide key="student-project" />,
-  <PilotSlide key="pilot" />,
   <TakeawaySlide key="takeaway" />,
+  <PilotSlide key="pilot" />,
 ];
 
 export default function Home() {
