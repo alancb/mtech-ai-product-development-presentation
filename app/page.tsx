@@ -219,7 +219,7 @@ function ProposedModelSlide() {
       <Eyebrow number="06">The proposed model</Eyebrow>
       <div className="heading-row compact-heading">
         <div>
-          <h2 className="one-line-title">One AI foundation. <em>Three specialties.</em></h2>
+          <h2 className="one-line-title">Introducing new programs: <em>AI Product Development</em></h2>
           <p className="lead">Learn to plan, build, and verify products with AI. Then go deeper in one specialty.</p>
         </div>
       </div>
@@ -419,8 +419,8 @@ function TakeawaySlide() {
         <ArrowRight aria-hidden="true" />
         <div className="takeaway-card takeaway-primary">
           <span><Layers3 aria-hidden="true" /> The opportunity</span>
-          <strong>Build a broad shared AI core.</strong>
-          <small>Then go deep in Design, Web, or iOS.</small>
+          <strong>Create a new AI program shaped by industry needs.</strong>
+          <small>Prepare students for the jobs employers need to fill.</small>
         </div>
         <ArrowRight aria-hidden="true" />
         <div className="takeaway-card">
