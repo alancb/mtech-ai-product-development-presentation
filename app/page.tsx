@@ -9,6 +9,7 @@ import {
   Clock3,
   Code2,
   Database,
+  Download,
   GraduationCap,
   Layers3,
   Megaphone,
@@ -152,7 +153,6 @@ function HandoffSlide() {
             </div>
           ))}
         </div>
-        <p className="org-chart-note"><GraduationCap aria-hidden="true" /><span><b>Teaching the team:</b> skills for product roles and the partner teams around them.</span></p>
       </div>
     </article>
   );
@@ -178,11 +178,11 @@ function SharedResponsibilitiesSlide() {
 const currentPrograms = [
   { name: 'Data Technology', icon: Database },
   { name: 'Digital Design', icon: Palette },
-  { name: 'Digital Marketing', icon: Megaphone },
+  { name: 'Digital Marketing and Analytics', icon: Megaphone },
   { name: 'iOS App Development', icon: Smartphone },
-  { name: 'Networking & Cybersecurity', icon: Network },
+  { name: 'Networking and Cybersecurity', icon: Network },
   { name: 'Software Quality Assurance', icon: TestTube2 },
-  { name: 'Web Development', icon: Code2 },
+  { name: 'Web Programming and Development', icon: Code2 },
 ];
 
 function CurrentPortfolioSlide() {
@@ -323,7 +323,7 @@ function SpecialtiesSlide() {
       <div className="specialty-grid">
         {specialties.map(({ name, icon: Icon, statement, topics, roles }, index) => (
           <div className={`specialty-card specialty-${index + 1}`} key={name}>
-            <div className="specialty-head"><span><Icon aria-hidden="true" /></span><b>{name}</b><small>12 credits</small></div>
+            <div className="specialty-head"><span><Icon aria-hidden="true" /></span><b>AI Product Development: <span>{name}</span></b><small>12 credits</small></div>
             <h3>{statement}</h3>
             <ul>{topics.map((topic) => <li key={topic}><Check aria-hidden="true" />{topic}</li>)}</ul>
             <p>{roles}</p>
@@ -428,6 +428,16 @@ function TakeawaySlide() {
           <strong>Specialists who can build across boundaries.</strong>
           <small>Ready for AI-enabled product teams.</small>
         </div>
+      </div>
+      <div className="presentation-downloads" aria-label="Download presentation resources">
+        <a href="./ai-product-development-slides.pdf" download>
+          <Download aria-hidden="true" />
+          <span><strong>Download presentation slides</strong><small>All 11 slides · PDF</small></span>
+        </a>
+        <a href="./ai-product-development-full.pdf" download>
+          <Download aria-hidden="true" />
+          <span><strong>Download course descriptions and objectives</strong><small>Foundation core and all specialties · PDF</small></span>
+        </a>
       </div>
     </article>
   );
